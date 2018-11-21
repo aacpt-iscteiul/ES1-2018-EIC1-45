@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 public class WindowMain extends Application {
 
 	private static Stage windowMain;
-	private static Scene sceneDefault, sceneMail, sceneFB, sceneTwitter;
+	private static Scene sceneDefault;
 	public static final int  HEIGHT = 600, WIDTH = 1000;
 
 	@Override
@@ -32,10 +32,8 @@ public class WindowMain extends Application {
 		windowMain.setMinHeight(300);
 		windowMain.setMinWidth(400);
 
-		// Scenes
-		sceneMakeDefault();
-		sceneMail = SceneMail.getScene();
-		sceneTwitter = SceneTwitter.getScene();
+		// Scene
+		sceneDefault = DefaultScene.getScene();
 		
 
 		// Stage Show
