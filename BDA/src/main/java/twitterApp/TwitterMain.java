@@ -13,10 +13,10 @@ public final class TwitterMain {
 		// https://www.youtube.com/watch?v=uYPmkzMpnxw
 		try {
 			ConfigurationBuilder cb = new ConfigurationBuilder();
-			cb.setDebugEnabled(true).setOAuthConsumerKey("W1f0VvgWPfT8OBqVxvy4Mw")
-					.setOAuthConsumerSecret("zKH2yAtRyefwsgOO8h8Szc4kru68iEm95QmIG7svw")
-					.setOAuthAccessToken("36481851-VhzByC4f9MSsZES1QZQ4e4iBvA9bWGLyv9HKFpy7c")
-					.setOAuthAccessTokenSecret("OahDuXF2Lhl5xlNYALhYZir6xSflAxKP9Zh89T05po");
+			cb.setDebugEnabled(true).setOAuthConsumerKey("FaI6Q7K5LmhNQC6U87n2qffpe")
+					.setOAuthConsumerSecret("vE0BgXPhwWg1obzg4y68NE79ebJspgiXsRk74tINiMbEYVshn3")
+					.setOAuthAccessToken("1054111224428986368-Q1PHXRIo9vq7IjeI1HvOGJkOoBGNxX")
+					.setOAuthAccessTokenSecret("vcqLcZosIvFZecOE8bgx13fE79CRTc2VNt7CjXZQoOBAX");
 			TwitterFactory tf = new TwitterFactory(cb.build());
 			Twitter twitter = tf.getInstance();
 			List<Status> statuses = twitter.getHomeTimeline();
@@ -24,8 +24,8 @@ public final class TwitterMain {
 			int counter = 0;
 			int counterTotal = 0;
 			for (Status status : statuses) {
-				// Filters only tweets from user "catarina"
-				if (status.getUser().getName() != null && status.getUser().getName().contains("catarina")) {
+				
+				if (status.getUser().getName() != null && status.getUser().getName().contains("ISCTE")) {
 					System.out.println(status.getUser().getName() + ":" + status.getText());
 					counter++;
 				}
