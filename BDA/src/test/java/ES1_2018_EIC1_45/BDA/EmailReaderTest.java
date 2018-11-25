@@ -28,7 +28,7 @@ import org.junit.Test;
  */
 
 public class EmailReaderTest {
-
+	
 	/**
 	 * Valor String para o endereço de email do recetor
 	 */
@@ -169,6 +169,7 @@ public class EmailReaderTest {
 	 * @throws MessagingException envia a exceção do tipo MessagingException para
 	 *                            quem chama o método.
 	 */
+	
 	public String getTextFromBodyPart(BodyPart bodyPart) throws IOException, MessagingException {
 		String result = "";
 		if (bodyPart.isMimeType("text/plain")) {

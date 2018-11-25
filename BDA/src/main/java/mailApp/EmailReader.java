@@ -17,11 +17,8 @@ import javax.mail.internet.ContentType;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMultipart;
 
-import org.jsoup.parser.*;
 
-
-/**
- * Date: 25/10/2018 Classe para ler emails na consola
+/** * Date: 25/10/2018 Classe para ler emails na consola
  * 
  * @author António Teixeira
  * @version 1.02
@@ -175,6 +172,7 @@ public class EmailReader {
 	 * @throws MessagingException envia a exceção do tipo MessagingException para
 	 *                            quem chama o método.
 	 */
+	
 	public String getTextFromBodyPart(BodyPart bodyPart) throws IOException, MessagingException {
 		String result = "";
 		if (bodyPart.isMimeType("text/plain")) {

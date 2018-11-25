@@ -104,7 +104,7 @@ public class EmailSender {
 	 * @param args String de argumentos
 	 */
 	public static void main(String[] args) {
-
+		
 		String senderEmail = "es1_2018_45@outlook.pt";
 		String senderPassword = "isctegrupo45";
 		String receiverEmail = "es1_2018_45@outlook.pt";
