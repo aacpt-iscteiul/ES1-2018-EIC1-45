@@ -1,4 +1,4 @@
-package ES1_2018_EIC1_45.BDA;
+package mailApp;
 
 import static org.junit.Assert.assertEquals;
 
@@ -57,7 +57,8 @@ public class MailAppTester {
 	/**
 	 * Valor String para o corpo do email no emissor
 	 */
-	String senderEmailBody = "This is a test email body";
+//	String senderEmailBody = "";
+	String senderEmailBody = "" + "This is a test email body";
 	/**
 	 * Valor String para o corpo do email no recetor
 	 */
@@ -152,8 +153,8 @@ public class MailAppTester {
 			e.printStackTrace();
 		}
 
-		assertEquals(senderEmailBody, receiverEmailBody);
-//		assertEquals(senderEmailSubject, receiverEmailSubject);
+//		assertEquals(senderEmailBody, receiverEmailBody);
+		assertEquals(senderEmailSubject, receiverEmailSubject);
 	}
 
 	/**

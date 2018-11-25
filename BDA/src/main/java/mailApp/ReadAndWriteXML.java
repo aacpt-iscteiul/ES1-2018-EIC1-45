@@ -47,7 +47,7 @@ public class ReadAndWriteXML {
 			for (int i = 0; i < nodeList.getLength(); i++) {
 				usersList.add(getUser(nodeList.item(i)));
 			}
-			// lets print Employee list information
+			// print da lista de Users
 			for (UserInfo u : usersList) {
 				System.out.println(u.toString());
 			}
@@ -62,10 +62,10 @@ public class ReadAndWriteXML {
 	}
 
 	/**
-	 * Método getUser
+	 * Método auxiliar do readFromXML() que vai buscar objetos UserInfo
 	 * 
-	 * @param node
-	 * @return
+	 * @param Node
+	 * @return UserInfo
 	 */
 	private UserInfo getUser(Node node) {
 		// XMLReaderDOM domReader = new XMLReaderDOM();
@@ -79,11 +79,11 @@ public class ReadAndWriteXML {
 	}
 
 	/**
-	 * Método getTagValue
+	 * Método auxiliar do getUser() que devolve o valor de um Node
 	 * 
-	 * @param tag
-	 * @param element
-	 * @return
+	 * @param String
+	 * @param Element
+	 * @return Node
 	 */
 	private String getTagValue(String tag, Element element) {
 		NodeList nodeList = element.getElementsByTagName(tag).item(0).getChildNodes();
@@ -148,12 +148,12 @@ public class ReadAndWriteXML {
 	}
 
 	/**
-	 * Método getUserNode
+	 * Método auxiliar do writeToXML() que devolve um objeto do tipo Node
 	 * 
-	 * @param doc
-	 * @param senderEmail
-	 * @param senderPassword
-	 * @return
+	 * @param Document doc
+	 * @param String senderEmail
+	 * @param String senderPassword
+	 * @return Node user
 	 */
 	private Node getUserNode(Document doc, String senderEmail, String senderPassword) {
 		Element user = doc.createElement("User");
@@ -177,7 +177,7 @@ public class ReadAndWriteXML {
 	 * @param element
 	 * @param name
 	 * @param value
-	 * @return
+	 * @return node
 	 */
 	private Node getUserElements(Document doc, Element element, String name, String value) {
 		Element node = doc.createElement(name);
@@ -185,4 +185,13 @@ public class ReadAndWriteXML {
 		return node;
 	}
 
+//	public static void main(String[] args) {
+//
+//		String senderEmail = "testemail";
+//		String senderPassword = "testpassword";
+//
+//		ReadAndWriteXML xml = new ReadAndWriteXML();
+//		xml.writeToXML(senderEmail, senderPassword);
+//		xml.readFromXML();
+//	}
 }

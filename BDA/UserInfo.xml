@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Users xmlns="Isto é a lista de utilizadores">
 <User>
-<email_address>es1_2018_45@outlook.pt</email_address>
-<email_password>isctegrupo45</email_password>
+<email_address>testemail</email_address>
+<email_password>testpassword</email_password>
 </User>
 </Users>

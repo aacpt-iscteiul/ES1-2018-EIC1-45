@@ -185,13 +185,13 @@ public class EmailReader {
 	 * 
 	 * @param args String de argumentos
 	 */
-	public static void main(String[] args) {
-
-		String receiverEmail = "es1_2018_45@outlook.pt";
-		String receiverPassword = "isctegrupo45";
-
-		EmailReader read = new EmailReader(receiverEmail, receiverPassword);
-		read.getMail();
-	}
+//	public static void main(String[] args) {
+//
+//		String receiverEmail = "es1_2018_45@outlook.pt";
+//		String receiverPassword = "isctegrupo45";
+//
+//		EmailReader read = new EmailReader(receiverEmail, receiverPassword);
+//		read.getMail();
+//	}
 
 }
