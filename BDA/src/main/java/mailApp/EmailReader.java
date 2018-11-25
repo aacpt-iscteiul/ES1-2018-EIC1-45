@@ -17,11 +17,8 @@ import javax.mail.internet.ContentType;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMultipart;
 
-import org.jsoup.parser.*;
 
-
-/**
- * Date: 25/10/2018 Classe para ler emails na consola
+/** * Date: 25/10/2018 Classe para ler emails na consola
  * 
  * @author António Teixeira
  * @version 1.02
@@ -66,11 +63,7 @@ public class EmailReader {
 	 */
 	public void getMail() {
 		try {
-//			Properties props = System.getProperties();
-//			props.setProperty("mail.store.protocol", "imap");
-//			Session mailSession = Session.getInstance(props);
-//			
-			Properties props = System.getProperties();
+		Properties props = System.getProperties();
 			props.setProperty("mail.store.protocol", "imap");
 			props.put("mail.imap.starttls.enable", true);
 			Session mailSession = Session.getInstance(props);
@@ -83,11 +76,9 @@ public class EmailReader {
 			emailFolder.open(Folder.READ_ONLY);
 			Message messages[] = emailFolder.getMessages();
 
-//			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
 			// Aqui posso configurar o numero de mensagens mostradas.
 			mails.clear();
-			for (int i = messages.length - 25; i < messages.length; i++) {
+			for (int i = messages.length - 5; i < messages.length; i++) {
 				Message message = messages[i];
 				Address[] froms = message.getFrom(); // melhor maneira de extrair os endereços de quem enviou emails
 				System.out.println("Email Number: " + (i + 1));
@@ -175,6 +166,7 @@ public class EmailReader {
 	 * @throws MessagingException envia a exceção do tipo MessagingException para
 	 *                            quem chama o método.
 	 */
+	
 	public String getTextFromBodyPart(BodyPart bodyPart) throws IOException, MessagingException {
 		String result = "";
 		if (bodyPart.isMimeType("text/plain")) {

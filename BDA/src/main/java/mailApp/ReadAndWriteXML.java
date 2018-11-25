@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.mail.MessagingException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -20,8 +21,16 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+/**
+ * Date: 10/11/2018 Classe para escrever e ler XML
+ * 
+ * @author António Teixeira
+ */
 public class ReadAndWriteXML {
 
+	/**
+	 * Método para ler XML
+	 */
 	public void readFromXML() {
 		String filePath = "UserInfo.xml";
 		File xmlFile = new File(filePath);
@@ -52,6 +61,12 @@ public class ReadAndWriteXML {
 
 	}
 
+	/**
+	 * Método getUser
+	 * 
+	 * @param node
+	 * @return
+	 */
 	private UserInfo getUser(Node node) {
 		// XMLReaderDOM domReader = new XMLReaderDOM();
 		UserInfo u = new UserInfo();
@@ -63,6 +78,13 @@ public class ReadAndWriteXML {
 		return u;
 	}
 
+	/**
+	 * Método getTagValue
+	 * 
+	 * @param tag
+	 * @param element
+	 * @return
+	 */
 	private String getTagValue(String tag, Element element) {
 		NodeList nodeList = element.getElementsByTagName(tag).item(0).getChildNodes();
 		Node node = (Node) nodeList.item(0);
@@ -73,13 +95,19 @@ public class ReadAndWriteXML {
 	// ****************************************************************************
 	// ****************************************************************************
 	// ****************************************************************************
-	// ****************************************************************************
+	// ****************************** WRITE TO XML ********************************
 	// ****************************************************************************
 	// ****************************************************************************
 	// ****************************************************************************
 	// ****************************************************************************
 	// ****************************************************************************
 
+	/**
+	 * Método para escrever XML
+	 * 
+	 * @param senderEmail
+	 * @param senderPassword
+	 */
 	public void writeToXML(String senderEmail, String senderPassword) {
 
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -119,6 +147,14 @@ public class ReadAndWriteXML {
 		}
 	}
 
+	/**
+	 * Método getUserNode
+	 * 
+	 * @param doc
+	 * @param senderEmail
+	 * @param senderPassword
+	 * @return
+	 */
 	private Node getUserNode(Document doc, String senderEmail, String senderPassword) {
 		Element user = doc.createElement("User");
 
@@ -134,6 +170,15 @@ public class ReadAndWriteXML {
 	}
 
 	// metodo utilitário para criar nó de texto
+	/**
+	 * Método getUserElements
+	 * 
+	 * @param doc
+	 * @param element
+	 * @param name
+	 * @param value
+	 * @return
+	 */
 	private Node getUserElements(Document doc, Element element, String name, String value) {
 		Element node = doc.createElement(name);
 		node.appendChild(doc.createTextNode(value));

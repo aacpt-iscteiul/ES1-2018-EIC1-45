@@ -32,7 +32,6 @@ import org.junit.Test;
  * @version 1.0
  */
 
-
 public class MailAppTester {
 
 	/**
@@ -67,7 +66,6 @@ public class MailAppTester {
 	 * Valor String para o assunto do email no recetor
 	 */
 	String receiverEmailSubject = "";
-
 
 	/**
 	 * Método para testar a classe MailAppTester
@@ -158,6 +156,17 @@ public class MailAppTester {
 //		assertEquals(senderEmailSubject, receiverEmailSubject);
 	}
 
+	/**
+	 * Método auxiliar do getMail() que devolve o texto da mensagem de mail caso
+	 * seja do tipo Mime.
+	 * 
+	 * @param message argumento do tipo Message.
+	 * @return Devolve uma String que corresponde ao texto da mensagem de email.
+	 * @throws IOException        envia a exceção do tipo IOException para quem
+	 *                            chama o método.
+	 * @throws MessagingException envia a exceção do tipo MessagingException para
+	 *                            quem chama o método.
+	 */
 	public String getTextFromMessage(Message message) throws IOException, MessagingException {
 		String result = "";
 		if (message.isMimeType("text/plain")) {
@@ -169,6 +178,17 @@ public class MailAppTester {
 		return result;
 	}
 
+	/**
+	 * Método auxiliar do getTextFromMessage() que devolve o texto da mensagem de
+	 * mail caso seja do tipo mimeMultipart.
+	 * 
+	 * @param mimeMultipart argumento do tipo mimeMultipart
+	 * @return Devolve uma String que corresponde ao texto da mensagem de email
+	 * @throws IOException        envia a exceção do tipo IOException para quem
+	 *                            chama o método.
+	 * @throws MessagingException envia a exceção do tipo MessagingException para
+	 *                            quem chama o método.
+	 */
 	public String getTextFromMimeMultipart(MimeMultipart mimeMultipart) throws IOException, MessagingException {
 
 		int count = mimeMultipart.getCount();
@@ -185,6 +205,18 @@ public class MailAppTester {
 		}
 		return result;
 	}
+
+	/**
+	 * Método auxiliar de getTextFromMimeMultipart() que devolve o texto da mensagem
+	 * de email caso seja do tipo multipartAlt
+	 * 
+	 * @param bodyPart argumento do tipo bodyPart
+	 * @return Devolve uma String que corresponde ao texto da mensagem de email
+	 * @throws IOException        envia a exceção do tipo IOException para quem
+	 *                            chama o método.
+	 * @throws MessagingException envia a exceção do tipo MessagingException para
+	 *                            quem chama o método.
+	 */
 
 	public String getTextFromBodyPart(BodyPart bodyPart) throws IOException, MessagingException {
 		String result = "";
