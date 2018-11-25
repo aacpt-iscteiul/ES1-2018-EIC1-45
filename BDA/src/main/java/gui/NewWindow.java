@@ -11,7 +11,9 @@ import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
 public class NewWindow extends Application{
-	
+
+	public static final int HEIGHT = 600, WIDTH = 1000;
+
 	public static void main(String[] args) {
 		NewWindow gui = new NewWindow();
 		Application.launch(gui.getClass(), args);

@@ -43,7 +43,7 @@ public class DefaultScene{
 		buttonAll.setOnAction(e -> {
 			showMail = true;
 			showFacebook = true;
-			showTwitter= true;
+			showTwitter = true;
 		});
 		buttonMail.setOnAction(e -> {
 			if (showMail)
@@ -99,7 +99,7 @@ public class DefaultScene{
 		optionsAndContent.getChildren().addAll(buttonsOptionsEmail(listTweets, content), content, replyBox);
 		frame.setCenter(optionsAndContent);
 		
-		return new Scene(frame, WindowMain.WIDTH, WindowMain.HEIGHT);
+		return new Scene(frame, NewWindow.WIDTH, NewWindow.HEIGHT);
 		
 	}
 	
@@ -143,7 +143,7 @@ public class DefaultScene{
 		
 		//filters
 		TextField textFilter = new TextField();
-		textFilter.setPromptText("Filters");
+		textFilter.setPromptText("Search");
 		Button buttonFilter = new Button("Apply");
 //		buttonFilter.setOnAction(e -> );
 		
