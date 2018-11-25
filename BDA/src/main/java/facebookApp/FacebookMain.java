@@ -119,7 +119,7 @@ public class FacebookMain {
 		for (List<Post> page : result) {
 			
 			for (Post aPost : page) {
-				// Filters only posts that contain the word "Inform"
+				// Filters for posts. --- Many possibilities
 				if (aPost.getLikesCount()>=0) {
 					
 					System.out.println("---- Post "+ counter5 + " ----");
