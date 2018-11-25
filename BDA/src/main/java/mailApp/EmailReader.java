@@ -63,11 +63,7 @@ public class EmailReader {
 	 */
 	public void getMail() {
 		try {
-//			Properties props = System.getProperties();
-//			props.setProperty("mail.store.protocol", "imap");
-//			Session mailSession = Session.getInstance(props);
-//			
-			Properties props = System.getProperties();
+		Properties props = System.getProperties();
 			props.setProperty("mail.store.protocol", "imap");
 			props.put("mail.imap.starttls.enable", true);
 			Session mailSession = Session.getInstance(props);
@@ -80,11 +76,9 @@ public class EmailReader {
 			emailFolder.open(Folder.READ_ONLY);
 			Message messages[] = emailFolder.getMessages();
 
-//			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
 			// Aqui posso configurar o numero de mensagens mostradas.
 			mails.clear();
-			for (int i = messages.length - 25; i < messages.length; i++) {
+			for (int i = messages.length - 5; i < messages.length; i++) {
 				Message message = messages[i];
 				Address[] froms = message.getFrom(); // melhor maneira de extrair os endereços de quem enviou emails
 				System.out.println("Email Number: " + (i + 1));
