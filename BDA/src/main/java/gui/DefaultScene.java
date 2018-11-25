@@ -107,26 +107,14 @@ public class DefaultScene{
 		if (listEmails.getItems() != null)
 			listEmails.getItems().clear();
 		listEmails.getSelectionModel().selectedItemProperty().addListener( (v, oldValue, newValue) -> {
-			bodyEmail.setText(funcGetTextMail(listEmails.getSelectionModel().getSelectedIndex())); //função para ir buscar o texto do email aqui
+			bodyEmail.setText(NewWindow.readMail.getBodyOf(listEmails.getSelectionModel().getSelectedIndex())); //função para ir buscar os corpos das mensagens aqui
 		});
-		//Função da class Mail que devolve um ArrayList com os títulos dos emails
-		ArrayList<String> arrayListEmails = new ArrayList<>();//Mail.getEmailList(); 
-		//temp enquanto nao ha funçao do mail
-		for (int i = 0; i < 26; i++) {
-			arrayListEmails.add("Título do tweet LOOOOONGOOOOOOOOOOOO " + i + " 25/02/2018\nRemetente");
-		}
+		//Função da class Mail que devolve um ArrayList com os títulos 
+		ArrayList<String> arrayListEmails = NewWindow.readMail.getMailTitles();
+		
 		for (String email : arrayListEmails) {
 			listEmails.getItems().add(email);
 		}listEmails.getSelectionModel().select(0);
-	}
-	
-
-	private static String funcGetTextMail(int selectedIndex) { // funcao para imitar a que se vai usar da classe do email
-		String body = "";
-		for (int i = 0; i < 36; i++) {
-			body += "corpo do tweet" + selectedIndex + " ";
-		}
-		return body;
 	}
 
 	private static HBox buttonsOptionsEmail(ListView<String> listTweets, TextArea tweet) {

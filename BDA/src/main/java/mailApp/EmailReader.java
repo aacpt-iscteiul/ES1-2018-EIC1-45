@@ -50,14 +50,26 @@ public class EmailReader {
 		this.receiverEmail = receiverEmail;
 		this.receiverPassword = receiverPassword;
 		mails = new ArrayList<Mail>();
-		
-		// HHH
 	}
 
 	public ArrayList<Mail> getMailList() {
 		return mails;
 	}
-
+	
+	public ArrayList<String> getMailTitles(){
+		ArrayList<String> titles = new ArrayList<>();
+		
+		for (Mail m: mails) {
+			titles.add(m.getEmailSubject() + "\n" + m.getSentDate() + "\n" + m.getSenderEmail());
+		}
+		
+		return titles;
+	}
+	
+	public String getBodyOf(int index) {
+		return mails.get(index).getEmailBody();
+	}
+	
 	/**
 	 * Método que mostra na consola as 3 ultimas mensagens da caixa do correio
 	 */
@@ -81,15 +93,15 @@ public class EmailReader {
 			for (int i = messages.length - 5; i < messages.length; i++) {
 				Message message = messages[i];
 				Address[] froms = message.getFrom(); // melhor maneira de extrair os endereços de quem enviou emails
-				System.out.println("Email Number: " + (i + 1));
+//				System.out.println("Email Number: " + (i + 1));
 				String subject = message.getSubject();
-				System.out.println("Subject: " + message.getSubject());
+//				System.out.println("Subject: " + message.getSubject());
 				String senderEmail = froms == null ? null : ((InternetAddress) froms[0]).getAddress();
-				System.out.println("From: " + senderEmail);
+//				System.out.println("From: " + senderEmail);
 				Date sentDate = message.getSentDate();
-				System.out.println("Sent date: " + sentDate);
+//				System.out.println("Sent date: " + sentDate);
 				String messageBoby = getTextFromMessage(message);
-				System.out.println("Text: " + messageBoby);
+//				System.out.println("Text: " + messageBoby);
 
 				Mail m = new Mail(receiverEmail, subject, messageBoby, senderEmail, sentDate);
 				mails.add(m);
@@ -189,7 +201,6 @@ public class EmailReader {
 
 		String receiverEmail = "es1_2018_45@outlook.pt";
 		String receiverPassword = "isctegrupo45";
-
 		EmailReader read = new EmailReader(receiverEmail, receiverPassword);
 		read.getMail();
 	}
