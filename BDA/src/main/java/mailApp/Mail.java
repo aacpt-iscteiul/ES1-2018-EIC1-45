@@ -12,26 +12,6 @@ import java.util.Date;
 
 public class Mail {
 
-	public String getReceiverEmail() {
-		return receiverEmail;
-	}
-
-	public String getEmailSubject() {
-		return emailSubject;
-	}
-
-	public String getEmailBody() {
-		return emailBody;
-	}
-
-	public String getSenderEmail() {
-		return senderEmail;
-	}
-
-	public Date getSentDate() {
-		return sentDate;
-	}
-
 	/**
 	 * Valor String para o endereço de email de quem recebe
 	 */

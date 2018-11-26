@@ -56,6 +56,11 @@ public class EmailReader {
 		return mails;
 	}
 
+	/**
+	 * Método auxiliar ao GUI que devolve um ArrayList de titulos de emails
+	 * 
+	 * @return titles
+	 */
 	public ArrayList<String> getMailTitles() {
 		ArrayList<String> titles = new ArrayList<>();
 
@@ -66,6 +71,12 @@ public class EmailReader {
 		return titles;
 	}
 
+	/**
+	 * Método auxiliar ao GUI que devolve um corpo de email
+	 * 
+	 * @param index
+	 * @return mails.get(index).getEmailBody()
+	 */
 	public String getBodyOf(int index) {
 		return mails.get(index).getEmailBody();
 	}
@@ -90,7 +101,7 @@ public class EmailReader {
 
 			// Aqui posso configurar o numero de mensagens mostradas.
 			mails.clear();
-			for (int i = messages.length - 1; i < messages.length; i++) {
+			for (int i = messages.length - 2; i < messages.length; i++) {
 				Message message = messages[i];
 				Address[] froms = message.getFrom(); // melhor maneira de extrair os endereços de quem enviou emails
 //				System.out.println("Email Number: " + (i + 1));
