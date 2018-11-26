@@ -17,8 +17,8 @@ import javax.mail.internet.ContentType;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMultipart;
 
-
-/** * Date: 25/10/2018 Classe para ler emails na consola
+/**
+ * * Date: 25/10/2018 Classe para ler emails na consola
  * 
  * @author António Teixeira
  * @version 1.02
@@ -55,27 +55,27 @@ public class EmailReader {
 	public ArrayList<Mail> getMailList() {
 		return mails;
 	}
-	
-	public ArrayList<String> getMailTitles(){
+
+	public ArrayList<String> getMailTitles() {
 		ArrayList<String> titles = new ArrayList<>();
-		
-		for (Mail m: mails) {
+
+		for (Mail m : mails) {
 			titles.add(m.getEmailSubject() + "\n" + m.getSentDate() + "\n" + m.getSenderEmail());
 		}
-		
+
 		return titles;
 	}
-	
+
 	public String getBodyOf(int index) {
 		return mails.get(index).getEmailBody();
 	}
-	
+
 	/**
 	 * Método que mostra na consola as 3 ultimas mensagens da caixa do correio
 	 */
 	public void getMail() {
 		try {
-		Properties props = System.getProperties();
+			Properties props = System.getProperties();
 			props.setProperty("mail.store.protocol", "imap");
 			props.put("mail.imap.starttls.enable", true);
 			Session mailSession = Session.getInstance(props);
@@ -90,7 +90,7 @@ public class EmailReader {
 
 			// Aqui posso configurar o numero de mensagens mostradas.
 			mails.clear();
-			for (int i = messages.length - 5; i < messages.length; i++) {
+			for (int i = messages.length - 1; i < messages.length; i++) {
 				Message message = messages[i];
 				Address[] froms = message.getFrom(); // melhor maneira de extrair os endereços de quem enviou emails
 //				System.out.println("Email Number: " + (i + 1));
@@ -178,7 +178,7 @@ public class EmailReader {
 	 * @throws MessagingException envia a exceção do tipo MessagingException para
 	 *                            quem chama o método.
 	 */
-	
+
 	public String getTextFromBodyPart(BodyPart bodyPart) throws IOException, MessagingException {
 		String result = "";
 		if (bodyPart.isMimeType("text/plain")) {
@@ -197,7 +197,6 @@ public class EmailReader {
 	 * 
 	 * @param args String de argumentos
 	 */
-<<<<<<< HEAD
 //	public static void main(String[] args) {
 //
 //		String receiverEmail = "es1_2018_45@outlook.pt";
@@ -206,14 +205,12 @@ public class EmailReader {
 //		EmailReader read = new EmailReader(receiverEmail, receiverPassword);
 //		read.getMail();
 //	}
-=======
-	public static void main(String[] args) {
-
-		String receiverEmail = "es1_2018_45@outlook.pt";
-		String receiverPassword = "isctegrupo45";
-		EmailReader read = new EmailReader(receiverEmail, receiverPassword);
-		read.getMail();
-	}
->>>>>>> refs/heads/teste
+//	public static void main(String[] args) {
+//
+//		String receiverEmail = "es1_2018_45@outlook.pt";
+//		String receiverPassword = "isctegrupo45";
+//		EmailReader read = new EmailReader(receiverEmail, receiverPassword);
+//		read.getMail();
+//	}
 
 }
