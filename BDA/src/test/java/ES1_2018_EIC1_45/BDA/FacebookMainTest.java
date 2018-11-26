@@ -1,12 +1,11 @@
 package ES1_2018_EIC1_45.BDA;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.List;
-
-import org.junit.*;
-
-import com.restfb.Connection;
 import com.restfb.DefaultFacebookClient;
 import com.restfb.FacebookClient;
 import com.restfb.FacebookClient.AccessToken;
@@ -17,18 +16,22 @@ import facebookApp.FacebookMain;
 
 public class FacebookMainTest {
 	
-	static String accessToken = "EAAIFIIEgfxIBADggr3JFRaxgbYP1l4zdOPMmJWHCCWLXIEhZCgRh689rwyIcdRWyBXaoq6zOyqOa9g0otVn09taEumGU6m0oF2oJ3ZC16RGdedZBCmbkVXx1dqkyiI3J41gx4m8tw819P4PmCsb2BngBlUwpr4MedqHfNDBuJPCruPsIJgyl3HTnl4xKfZAFh36vq949HRYNktXy0ALF";
 	FacebookClient fbClient;
 	User me;
 	FacebookMain fb;
 	
-	@BeforeClass
+	
+	@Before
 	public void initBeforeTests() {
-		
 		fb = new FacebookMain();
 		fb.init();
-		
 	}
+	
+	@Test
+	public void testJUnit() {
+		assertTrue(true);
+	}
+	
 	
 	@Test
 	//This is also the test to see if init() worked as init is void
@@ -45,7 +48,7 @@ public class FacebookMainTest {
 		
 	@Test
 	public void getMyUsernameLengthShouldBeBiggerThanZero() {
-		assert(me.getUsername().length()>0);
+		assert(fb.getMyUsername().length()>0);
 	}
 	
 	
@@ -53,6 +56,5 @@ public class FacebookMainTest {
 	public void getPostsShouldNotBeNull() {
 		assertNotNull(fb.getPosts());
 	}
-	
 	
 }

@@ -10,7 +10,7 @@ import com.restfb.types.User;
 
 public class FacebookMain {
 	
-	String accessToken = "EAAIFIIEgfxIBADggr3JFRaxgbYP1l4zdOPMmJWHCCWLXIEhZCgRh689rwyIcdRWyBXaoq6zOyqOa9g0otVn09taEumGU6m0oF2oJ3ZC16RGdedZBCmbkVXx1dqkyiI3J41gx4m8tw819P4PmCsb2BngBlUwpr4MedqHfNDBuJPCruPsIJgyl3HTnl4xKfZAFh36vq949HRYNktXy0ALF";
+	String accessToken = "EAAIFIIEgfxIBADLwjWxhI0DkWGMQrZCsFceampQmhvxpPrsiCwd5ppZAfSfKTmjOZC0mxAPfNPnk8sjcK0JYcdbw8D6cc4EJORqIbrOtj9ZBnuHX5k76ZAFIVFhgIBQYGcICnZBPhdRoRK1nmKrMWR48j20XOCiFadJchmb8U28XmVMlzWBmlHwam25hWJlZCTlk0x4UFYxZBBSpUNoh8gOgUdrtiLEaLqUZD";
 	FacebookClient fbClient ;
 	User me;
 	
@@ -61,7 +61,7 @@ public class FacebookMain {
 	 */
 	
 	public String getMyUsername() {
-		return me.getUsername();
+		return me.getName();
 	}
 	
 	/**
@@ -137,9 +137,11 @@ public class FacebookMain {
 				}
 				counterTotal++;
 			}
+			
 		}
 		
 		System.out.println("-------------\nNº of Results: " + counter5+"/"+counterTotal);
+		System.out.println("Username:"+me.getName());
 		
 	}
 	
