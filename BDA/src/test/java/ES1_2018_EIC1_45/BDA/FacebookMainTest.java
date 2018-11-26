@@ -57,4 +57,13 @@ public class FacebookMainTest {
 		assertNotNull(fb.getPosts());
 	}
 	
+	/*
+	@Test
+	public void getIDShouldBeANumericalString() {
+		assertNotNull(fb.getMyID());
+		int a = Integer.valueOf(fb.getMyID());
+		System.out.println("a:"+a);
+		assert(a>0);
+	}
+	*/
 }

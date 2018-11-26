@@ -26,7 +26,7 @@ public class FacebookMain {
 	
 	/**
 	 * 
-	 * Initialize variables/Start Connection
+	 * Initialize Variables/Start Connection
 	 * 
 	 */
 	
@@ -37,7 +37,8 @@ public class FacebookMain {
 	
 	
 	/**
-	 * Used mostly for debug or to get the entire User
+	 * Used mostly for debug or to get the entire User (Class User from library restFB)
+	 * Useful to see potential fields available.
 	 * 
 	 * @return User object
 	 */
@@ -141,7 +142,12 @@ public class FacebookMain {
 		}
 		
 		System.out.println("-------------\nNº of Results: " + counter5+"/"+counterTotal);
-		System.out.println("Username:"+me.getName());
+		
+		// Test Below
+		/*System.out.println("Username:"+me.getId());
+		unsigned int a = Integer.parseInt(me.getId());
+		System.out.println("a"+a);
+		*/
 		
 	}
 	
