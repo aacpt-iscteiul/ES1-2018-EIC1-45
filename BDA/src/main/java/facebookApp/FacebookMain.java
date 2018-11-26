@@ -10,7 +10,9 @@ import com.restfb.types.User;
 
 public class FacebookMain {
 	
-	String accessToken = "EAAIFIIEgfxIBADLwjWxhI0DkWGMQrZCsFceampQmhvxpPrsiCwd5ppZAfSfKTmjOZC0mxAPfNPnk8sjcK0JYcdbw8D6cc4EJORqIbrOtj9ZBnuHX5k76ZAFIVFhgIBQYGcICnZBPhdRoRK1nmKrMWR48j20XOCiFadJchmb8U28XmVMlzWBmlHwam25hWJlZCTlk0x4UFYxZBBSpUNoh8gOgUdrtiLEaLqUZD";
+	//To get a long-lived token
+	//https://developers.facebook.com/tools/debug/accesstoken/?access_token=EAAIFIIEgfxIBAIT3qcNBBKXqZBaDBDBcQr7ecRIe8XJHscyZALanWpP5UkmSvw4fUh2dd1eeAH8DSEBp2xwf15r3c3mvtGTyct85LWTabBUcX7DRZAvEA43w8oR3Qg4ZAbrhZCzd1GZAiYZBjzBc6CE71p6vnSn0ZAtG0BjK4xxlZANErvOE9YELCTxX049v2RCq8tTKUgyE64xlqxkMJHSZCQVAainhXvm3QZD
+	String accessToken = "EAAIFIIEgfxIBAIZBSW7WG4lUNjJEZBnZAVmOpdFVznXZAgGZCeTLGfHQIN6intn0EIurHZCSae44rb8oXOBhnRXfu9YqpgaVbFBySsgXq4WwoCfZBurQGitZCHQbT18pGsMsSv3Eejj5vi7bAi4YZC7BRyGpF3bwdgQsnKZCGf1Cs2SPVJMfWrm44P";
 	FacebookClient fbClient ;
 	User me;
 	
@@ -71,6 +73,7 @@ public class FacebookMain {
 	 * 
 	 * Cria um novo post feito pelo utilizador.
 	 * 
+	 * (In Development)
 	 * 
 	 */
 	
@@ -78,6 +81,13 @@ public class FacebookMain {
 		
 	}
 	
+	
+	/**
+	 * getPosts() - Used to get all the posts in the page.
+	 * Due to recent limitations on the API can only get "me" - Trying to find a solution, but there doesn't seem to be one with this API.
+	 * 
+	 * @return Connection<Post> List of all the posts
+	 */
 	
 	public Connection<Post> getPosts() {
 		
@@ -104,7 +114,7 @@ public class FacebookMain {
 	/**
 	 * 
 	 * Method to print what's being obtained from the current fetchConnection command.
-	 * Printing to console - Currently being used to 'debug' the API. 
+	 * Printing to console - Currently being used to 'debug'/test the API and token access. 
 	 * 
 	 */
 	
