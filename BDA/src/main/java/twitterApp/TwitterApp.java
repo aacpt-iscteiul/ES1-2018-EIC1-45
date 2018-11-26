@@ -11,17 +11,36 @@ import twitter4j.User;
 import twitter4j.auth.AccessToken;
 import twitter4j.conf.ConfigurationBuilder;
 
+/**
+ * Classe de exibir Tweets na consola
+ * 
+ * @author Stéphanie Andrade
+ * @version 1.01
+ *
+ */
 public class TwitterApp {
 
-	private List<Status> statuses;
+	
+	/**
+	 * Instancia do twitter
+	 */
 	private Twitter twitter;
+	/**
+	 * Lista dos estados retirados do twitter
+	 */
+	private List<Status> statuses;
 
+/**
+ * Construtor da classe
+ */
 	public TwitterApp() {
 		getStatus();
 		getTimeline();
 		getUsertimeline();
 	}
-
+/**
+ * Metodo para por os tokens do twitter e buscar a lista de estados 
+ */
 	public void getStatus() {
 		try {
 			ConfigurationBuilder cb = new ConfigurationBuilder();
@@ -38,6 +57,9 @@ public class TwitterApp {
 
 	}
 
+	/**
+	 * Metodo que imprime na consola os tweets do utilizador
+	 */
 	public void getUsertimeline() {
 		try {
 			statuses = twitter.getUserTimeline();
@@ -58,6 +80,11 @@ public class TwitterApp {
 		}
 
 	}
+	
+	
+	/**
+	 * Metodo que imprime tweets do feed principal
+	 */
 
 	public void getTimeline() {
 		try {

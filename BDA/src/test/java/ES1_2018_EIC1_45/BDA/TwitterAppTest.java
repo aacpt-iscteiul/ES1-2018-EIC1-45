@@ -23,7 +23,7 @@ public class TwitterAppTest {
 
 	@Test
 	public void testGetUsertimeline() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test
