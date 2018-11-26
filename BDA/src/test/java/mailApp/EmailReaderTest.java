@@ -53,53 +53,53 @@ public class EmailReaderTest {
 	 * Método para testar a classe EmailReader
 	 */
 	@Test
-	public void test() {
-		try {
-			Properties props = System.getProperties();
-			props.setProperty("mail.store.protocol", "imaps");
-			Session mailSession = Session.getInstance(props);
+	public void test() throws Exception {
+//		try {
+		Properties props = System.getProperties();
+		props.setProperty("mail.store.protocol", "imaps");
+		Session mailSession = Session.getInstance(props);
 
-			// mailSession.setDebug(true);
-			Store emailStore = mailSession.getStore("imaps");
-			emailStore.connect("imap-mail.outlook.com", receiverEmail, receiverPassword);
+		// mailSession.setDebug(true);
+		Store emailStore = mailSession.getStore("imaps");
+		emailStore.connect("imap-mail.outlook.com", receiverEmail, receiverPassword);
 
-			// pasta inbox
-			Folder emailFolder = emailStore.getFolder("INBOX");
-			emailFolder.open(Folder.READ_ONLY);
-			Message messages[] = emailFolder.getMessages();
+		// pasta inbox
+		Folder emailFolder = emailStore.getFolder("INBOX");
+		emailFolder.open(Folder.READ_ONLY);
+		Message messages[] = emailFolder.getMessages();
 
 //			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-			// Só vejo as 3 primeiras
+		// Só vejo as 3 primeiras
 
-			for (int i = messages.length - 1; i < messages.length; i++) {
-				Message message = messages[i];
-				Address[] froms = message.getFrom(); // melhor maneira de extrair os endereços de quem enviou emails
-				System.out.println("Email Number: " + (i + 1));
-				subject = message.getSubject();
-				System.out.println("Subject: " + message.getSubject());
-				String senderEmail = froms == null ? null : ((InternetAddress) froms[0]).getAddress();
-				System.out.println("From: " + senderEmail);
-				Date sentDate = message.getSentDate();
-				System.out.println("Sent date: " + sentDate);
-				messageBoby = getTextFromMessage(message);
-				System.out.println("Text: " + messageBoby);
+		for (int i = messages.length - 1; i < messages.length; i++) {
+			Message message = messages[i];
+			Address[] froms = message.getFrom(); // melhor maneira de extrair os endereços de quem enviou emails
+			System.out.println("Email Number: " + (i + 1));
+			subject = message.getSubject();
+			System.out.println("Subject: " + message.getSubject());
+			String senderEmail = froms == null ? null : ((InternetAddress) froms[0]).getAddress();
+			System.out.println("From: " + senderEmail);
+			Date sentDate = message.getSentDate();
+			System.out.println("Sent date: " + sentDate);
+			messageBoby = getTextFromMessage(message);
+			System.out.println("Text: " + messageBoby);
 
 //				Mail m = new Mail(receiverEmail, subject, messageBoby, senderEmail, sentDate);
 //				mails.add(m);
-			}
-			emailFolder.close();
-			emailStore.close();
-		} catch (NoSuchProviderException nspex) {
-			nspex.printStackTrace();
-		} catch (MessagingException mex) {
-			mex.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
+		emailFolder.close();
+		emailStore.close();
+//		} catch (NoSuchProviderException nspex) {
+//			nspex.printStackTrace();
+//		} catch (MessagingException mex) {
+//			mex.printStackTrace();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 
 //		assertEquals(messageBoby, "This is a test email body");
-		assertEquals(subject, "This is a test email subject 5");
+		assertEquals(subject, "This is a test email subject XII");
 	}
 
 	/**
@@ -113,7 +113,7 @@ public class EmailReaderTest {
 	 * @throws MessagingException envia a exceção do tipo MessagingException para
 	 *                            quem chama o método.
 	 */
-	public String getTextFromMessage(Message message) throws IOException, MessagingException {
+	public String getTextFromMessage(Message message) throws Exception {
 		String result = "";
 		if (message.isMimeType("text/plain")) {
 			result = message.getContent().toString();
@@ -135,7 +135,7 @@ public class EmailReaderTest {
 	 * @throws MessagingException envia a exceção do tipo MessagingException para
 	 *                            quem chama o método.
 	 */
-	public String getTextFromMimeMultipart(MimeMultipart mimeMultipart) throws IOException, MessagingException {
+	public String getTextFromMimeMultipart(MimeMultipart mimeMultipart) throws Exception {
 
 		int count = mimeMultipart.getCount();
 		if (count == 0)
@@ -164,7 +164,7 @@ public class EmailReaderTest {
 	 *                            quem chama o método.
 	 */
 
-	public String getTextFromBodyPart(BodyPart bodyPart) throws IOException, MessagingException {
+	public String getTextFromBodyPart(BodyPart bodyPart) throws Exception {
 		String result = "";
 		if (bodyPart.isMimeType("text/plain")) {
 			result = (String) bodyPart.getContent();

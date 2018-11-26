@@ -78,7 +78,7 @@ public class EmailReader {
 
 			// Aqui posso configurar o numero de mensagens mostradas.
 			mails.clear();
-			for (int i = messages.length - 5; i < messages.length; i++) {
+			for (int i = messages.length - 1; i < messages.length; i++) {
 				Message message = messages[i];
 				Address[] froms = message.getFrom(); // melhor maneira de extrair os endereços de quem enviou emails
 				System.out.println("Email Number: " + (i + 1));
@@ -185,13 +185,13 @@ public class EmailReader {
 	 * 
 	 * @param args String de argumentos
 	 */
-//	public static void main(String[] args) {
-//
-//		String receiverEmail = "es1_2018_45@outlook.pt";
-//		String receiverPassword = "isctegrupo45";
-//
-//		EmailReader read = new EmailReader(receiverEmail, receiverPassword);
-//		read.getMail();
-//	}
+	public static void main(String[] args) {
+
+		String receiverEmail = "es1_2018_45@outlook.pt";
+		String receiverPassword = "isctegrupo45";
+
+		EmailReader read = new EmailReader(receiverEmail, receiverPassword);
+		read.getMail();
+	}
 
 }

@@ -75,7 +75,7 @@ public class MailAppTester {
 	 * 
 	 */
 	@Test
-	public void test() {
+	public void test() throws Exception {
 
 		// +++++++++++++++++++ ENVIO DE EMAIL ++++++++++++++++++++++++
 
@@ -87,71 +87,59 @@ public class MailAppTester {
 		props.put("mail.smtp.pwd", senderPassword);
 		props.put("mail.smtp.port", 587);
 
-		try {
-			Authenticator auth = new javax.mail.Authenticator() {
-				protected PasswordAuthentication getPasswordAuthentication() {
-					return new PasswordAuthentication(senderEmail, senderPassword);
-				}
-			};
+		Authenticator auth = new javax.mail.Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(senderEmail, senderPassword);
+			}
+		};
 
-			Session session = Session.getInstance(props, auth);
-			MimeMessage msg = new MimeMessage(session);
-			msg.setText(senderEmailBody);
-			msg.setSubject(senderEmailSubject);
-			msg.setFrom(new InternetAddress(senderEmail));
-			msg.addRecipient(Message.RecipientType.TO, new InternetAddress(receiverEmail));
-			Transport.send(msg);
+		Session session = Session.getInstance(props, auth);
+		MimeMessage msg = new MimeMessage(session);
+		msg.setText(senderEmailBody);
+		msg.setSubject(senderEmailSubject);
+		msg.setFrom(new InternetAddress(senderEmail));
+		msg.addRecipient(Message.RecipientType.TO, new InternetAddress(receiverEmail));
+		Transport.send(msg);
 
-		} catch (MessagingException mex) {
-			mex.printStackTrace();
-		}
 		System.out.println("Done. Mail sent!");
 
 		// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		// +++++++++++++++++++ RECEÇÃO DE EMAIL ++++++++++++++++++++++++
 		// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-		try {
-			Properties rProps = System.getProperties();
-			rProps.setProperty("mail.store.protocol", "imaps");
-			Session mailSession = Session.getInstance(rProps);
+		Properties rProps = System.getProperties();
+		rProps.setProperty("mail.store.protocol", "imaps");
+		Session mailSession = Session.getInstance(rProps);
 
-			// mailSession.setDebug(true);
-			Store emailStore = mailSession.getStore("imaps");
-			emailStore.connect("imap-mail.outlook.com", receiverEmail, receiverPassword);
+		// mailSession.setDebug(true);
+		Store emailStore = mailSession.getStore("imaps");
+		emailStore.connect("imap-mail.outlook.com", receiverEmail, receiverPassword);
 
-			// pasta inbox
-			Folder emailFolder = emailStore.getFolder("INBOX");
-			emailFolder.open(Folder.READ_ONLY);
-			Message messages[] = emailFolder.getMessages();
+		// pasta inbox
+		Folder emailFolder = emailStore.getFolder("INBOX");
+		emailFolder.open(Folder.READ_ONLY);
+		Message messages[] = emailFolder.getMessages();
 
 //			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-			for (int i = messages.length - 1; i < messages.length; i++) {
-				Message message = messages[i];
-				Address[] froms = message.getFrom(); // melhor maneira de extrair os endereços de quem enviou emails
-				System.out.println("Email Number: " + (i + 1));
-				receiverEmailSubject = message.getSubject();
-				System.out.println("Subject: " + message.getSubject());
-				String senderEmail2 = froms == null ? null : ((InternetAddress) froms[0]).getAddress();
-				System.out.println("From: " + senderEmail2);
-				Date sentDate = message.getSentDate();
-				System.out.println("Sent date: " + sentDate);
-				receiverEmailBody = getTextFromMessage(message);
-				System.out.println("Text: " + receiverEmailBody);
+		for (int i = messages.length - 1; i < messages.length; i++) {
+			Message message = messages[i];
+			Address[] froms = message.getFrom(); // melhor maneira de extrair os endereços de quem enviou emails
+			System.out.println("Email Number: " + (i + 1));
+			receiverEmailSubject = message.getSubject();
+			System.out.println("Subject: " + message.getSubject());
+			String senderEmail2 = froms == null ? null : ((InternetAddress) froms[0]).getAddress();
+			System.out.println("From: " + senderEmail2);
+			Date sentDate = message.getSentDate();
+			System.out.println("Sent date: " + sentDate);
+			receiverEmailBody = getTextFromMessage(message);
+			System.out.println("Text: " + receiverEmailBody);
 
 //				Mail m = new Mail(receiverEmail, subject, messageBoby, senderEmail, sentDate);
 //				mails.add(m);
-			}
-			emailFolder.close();
-			emailStore.close();
-		} catch (NoSuchProviderException nspex) {
-			nspex.printStackTrace();
-		} catch (MessagingException mex) {
-			mex.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
+		emailFolder.close();
+		emailStore.close();
 
 //		assertEquals(senderEmailBody, receiverEmailBody);
 		assertEquals(senderEmailSubject, receiverEmailSubject);
@@ -168,7 +156,7 @@ public class MailAppTester {
 	 * @throws MessagingException envia a exceção do tipo MessagingException para
 	 *                            quem chama o método.
 	 */
-	public String getTextFromMessage(Message message) throws IOException, MessagingException {
+	public String getTextFromMessage(Message message) throws Exception {
 		String result = "";
 		if (message.isMimeType("text/plain")) {
 			result = message.getContent().toString();
@@ -185,12 +173,9 @@ public class MailAppTester {
 	 * 
 	 * @param mimeMultipart argumento do tipo mimeMultipart
 	 * @return Devolve uma String que corresponde ao texto da mensagem de email
-	 * @throws IOException        envia a exceção do tipo IOException para quem
-	 *                            chama o método.
-	 * @throws MessagingException envia a exceção do tipo MessagingException para
-	 *                            quem chama o método.
+	 * @throws Exception 
 	 */
-	public String getTextFromMimeMultipart(MimeMultipart mimeMultipart) throws IOException, MessagingException {
+	public String getTextFromMimeMultipart(MimeMultipart mimeMultipart) throws Exception {
 
 		int count = mimeMultipart.getCount();
 		if (count == 0)
@@ -219,7 +204,7 @@ public class MailAppTester {
 	 *                            quem chama o método.
 	 */
 
-	public String getTextFromBodyPart(BodyPart bodyPart) throws IOException, MessagingException {
+	public String getTextFromBodyPart(BodyPart bodyPart) throws Exception {
 		String result = "";
 		if (bodyPart.isMimeType("text/plain")) {
 			result = (String) bodyPart.getContent();
