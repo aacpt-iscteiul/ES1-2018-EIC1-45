@@ -92,8 +92,8 @@ public class EmailReader {
 			Session mailSession = Session.getInstance(props);
 			// mailSession.setDebug(true);
 			Store emailStore = mailSession.getStore("imap");
-			emailStore.connect("imap-mail.outlook.com", receiverEmail, receiverPassword);
-
+			emailStore.connect("imap-mail.outlook.com", receiverEmail, receiverPassword); 
+			
 			// pasta inbox
 			Folder emailFolder = emailStore.getFolder("INBOX");
 			emailFolder.open(Folder.READ_ONLY);
@@ -101,7 +101,7 @@ public class EmailReader {
 
 			// Aqui posso configurar o numero de mensagens mostradas.
 			mails.clear();
-			for (int i = messages.length - 2; i < messages.length; i++) {
+			for (int i = messages.length - 20; i < messages.length; i++) {
 				Message message = messages[i];
 				Address[] froms = message.getFrom(); // melhor maneira de extrair os endereços de quem enviou emails
 //				System.out.println("Email Number: " + (i + 1));

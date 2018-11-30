@@ -68,5 +68,10 @@
     	<artifactId>restfb</artifactId>
     	<version>2.11.0</version>
     </dependency>
+    <dependency>
+    	<groupId>org.testfx</groupId>
+    	<artifactId>testfx-junit</artifactId>
+    	<version>4.0.10-alpha</version>
+    </dependency>
   </dependencies>
 </project>

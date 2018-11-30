@@ -13,6 +13,8 @@ import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
 
+import XML.ReadAndWriteXML;
+
 /**
  * Date: 25/11/2018 Classe de testes da classe ReadAndWriteXMLTest
  * 

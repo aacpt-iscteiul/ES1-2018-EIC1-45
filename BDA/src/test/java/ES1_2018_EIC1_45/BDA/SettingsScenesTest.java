@@ -1,6 +1,6 @@
 package ES1_2018_EIC1_45.BDA;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.BeforeClass;

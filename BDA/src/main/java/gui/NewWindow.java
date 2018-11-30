@@ -15,7 +15,7 @@ public class NewWindow extends Application{
 
 	public static final int HEIGHT = 600, WIDTH = 1000;
 	static EmailReader readMail;
-
+	
 	public static void main(String[] args) {
 		//MAIL
 		String receiverEmail = "es1_2018_45@outlook.pt";
