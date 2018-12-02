@@ -99,11 +99,13 @@ public class TwitterApp {
 		}
 		return result;
 	}
-/**
- * Metodo que devolve lista de tweets do utilizador procurado
- * @param search
- * @return
- */
+
+	/**
+	 * Metodo que devolve lista de tweets do utilizador procurado
+	 * 
+	 * @param search
+	 * @return
+	 */
 	public ArrayList<String> getTimelineSearchUserTweets(String search) {
 
 		ArrayList<String> result = new ArrayList<String>();
@@ -123,33 +125,39 @@ public class TwitterApp {
 		}
 		return result;
 	}
-/**
- * Metodo que devolve lista de tweets que contêm a palavra procurada
- * @param search
- * @return
- */
-	
-	
-		public ArrayList<String> getTimelineSearchTweets(String search) {
 
-			ArrayList<String> result = new ArrayList<String>();
-			try {
-				statuses = twitter.getHomeTimeline();
+	/**
+	 * Metodo que devolve lista de tweets que contêm a palavra procurada
+	 * 
+	 * @param search
+	 * @return
+	 */
 
-				for (Status status : statuses) {
+	public ArrayList<String> getTimelineSearchTweets(String search) {
 
-					if (status.getUser().getName() != null && status.getText().contains(search)) {
-						result.add(status.getUser().getName() + ":" + status.getText());
-					}
+		ArrayList<String> result = new ArrayList<String>();
+		try {
+			statuses = twitter.getHomeTimeline();
+
+			for (Status status : statuses) {
+
+				if (status.getUser().getName() != null && status.getText().contains(search)) {
+					result.add(status.getUser().getName() + ":" + status.getText());
 				}
-
-			} catch (TwitterException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			}
-			return result;
-		}
 
+		} catch (TwitterException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	/**
+	 * Metodo que devolve o username do utilizador
+	 * 
+	 * @return
+	 */
 	public String getUsername() {
 
 		try {
@@ -165,6 +173,26 @@ public class TwitterApp {
 		return null;
 	}
 
+	public ArrayList<String> getFavorites(String search) {
+
+		ArrayList<String> result = new ArrayList<String>();
+		try {
+			statuses = twitter.getFavorites();
+
+			for (Status status : statuses) {
+
+				result.add(status.getUser().getName() + ":" + status.getText());
+			}
+			
+			
+
+		} catch (TwitterException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
 	
-	
+
+
 }
