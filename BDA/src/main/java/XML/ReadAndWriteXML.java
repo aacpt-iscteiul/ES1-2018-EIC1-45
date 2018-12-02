@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.mail.MessagingException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -21,8 +20,6 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import mailApp.UserInfo;
-
 /**
  * Date: 10/11/2018 Classe para escrever e ler XML
  * 
@@ -31,7 +28,7 @@ import mailApp.UserInfo;
 public class ReadAndWriteXML {
 
 	/**
-	 * Método para ler XML
+	 * Método para ler XML e escrever na consola o output
 	 */
 	public void readFromXML() {
 		String filePath = "UserInfo.xml";
@@ -50,9 +47,9 @@ public class ReadAndWriteXML {
 				usersList.add(getUser(nodeList.item(i)));
 			}
 			// print da lista de Users
-			for (UserInfo u : usersList) {
-				System.out.println(u.toString());
-			}
+//			for (UserInfo u : usersList) {
+//				System.out.println(u.toString());
+//			}
 		} catch (ParserConfigurationException e) {
 			e.printStackTrace();
 		} catch (SAXException e) {
@@ -76,6 +73,10 @@ public class ReadAndWriteXML {
 			Element element = (Element) node;
 			u.setEmailAddress(getTagValue("email_address", element));
 			u.setEmailPassword(getTagValue("email_password", element));
+			u.setFbUserName(getTagValue("fb_username", element));
+			u.setFbPassword(getTagValue("fb_password", element));
+			u.setTwtUserName(getTagValue("twt_username", element));
+			u.setTwtPassword(getTagValue("twt_password", element));
 		}
 		return u;
 	}
@@ -105,12 +106,17 @@ public class ReadAndWriteXML {
 	// ****************************************************************************
 
 	/**
-	 * Método para escrever XML
+	 * Método para escrever as credenciais das apps em XML
 	 * 
-	 * @param senderEmail
-	 * @param senderPassword
+	 * @param emailAddress
+	 * @param emailPassword
+	 * @param twtPassword
+	 * @param twtUserName
+	 * @param fbPassword
+	 * @param fbUserName
 	 */
-	public void writeToXML(String senderEmail, String senderPassword) {
+	public void writeToXML(String emailAddress, String emailPassword, String fbUserName, String fbPassword,
+			String twtUserName, String twtPassword) {
 
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder;
@@ -125,7 +131,8 @@ public class ReadAndWriteXML {
 			doc.appendChild(rootElement);
 
 			// adicionar primeiro elemento filho ao elemento raiz
-			rootElement.appendChild(getUserNode(doc, senderEmail, senderPassword));
+			rootElement.appendChild(
+					getUserNode(doc, emailAddress, emailPassword, fbUserName, fbPassword, twtUserName, twtPassword));
 
 			// fazer output para o ficheiro, consola
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -152,22 +159,39 @@ public class ReadAndWriteXML {
 	/**
 	 * Método auxiliar do writeToXML() que devolve um objeto do tipo Node
 	 * 
-	 * @param Document doc
-	 * @param String senderEmail
-	 * @param String senderPassword
+	 * @param doc
+	 * @param emailAddress
+	 * @param emailPassword
+	 * @param fbUserName
+	 * @param fbPassword
+	 * @param twtUserName
+	 * @param twtPassword
 	 * @return Node user
 	 */
-	private Node getUserNode(Document doc, String senderEmail, String senderPassword) {
+	private Node getUserNode(Document doc, String emailAddress, String emailPassword, String fbUserName,
+			String fbPassword, String twtUserName, String twtPassword) {
 		Element user = doc.createElement("User");
 
 		// criar atributo id
 //		user.setAttribute("id", id);
 
 		// criar elemento email_address
-		user.appendChild(getUserElements(doc, user, "email_address", senderEmail));
+		user.appendChild(getUserElements(doc, user, "email_address", emailAddress));
 
 		// criar element email_password
-		user.appendChild(getUserElements(doc, user, "email_password", senderPassword));
+		user.appendChild(getUserElements(doc, user, "email_password", emailPassword));
+
+		// criar element fb_username
+		user.appendChild(getUserElements(doc, user, "fb_username", fbUserName));
+
+		// criar element fb_password
+		user.appendChild(getUserElements(doc, user, "fb_password", fbPassword));
+
+		// criar element twt_username
+		user.appendChild(getUserElements(doc, user, "twt_username", twtUserName));
+
+		// criar element twt_password
+		user.appendChild(getUserElements(doc, user, "twt_password", twtPassword));
 		return user;
 	}
 
@@ -187,13 +211,22 @@ public class ReadAndWriteXML {
 		return node;
 	}
 
+	/**
+	 * Método de testes para leitura e escrita de XML
+	 * 
+	 * @param args
+	 */
 //	public static void main(String[] args) {
 //
-//		String senderEmail = "testemail";
-//		String senderPassword = "testpassword";
+//		String emailAddress = "emailAddress@mail.com";
+//		String emailPassword = "emailPassword";
+//		String fbUserName = "fbUserName";
+//		String fbPassword = "fbPassword";
+//		String twtUserName = "twtUserName";
+//		String twtPassword = "twtPassword";
 //
 //		ReadAndWriteXML xml = new ReadAndWriteXML();
-//		xml.writeToXML(senderEmail, senderPassword);
+//		xml.writeToXML(emailAddress, emailPassword, fbUserName, fbPassword, twtUserName, twtPassword);
 //		xml.readFromXML();
 //	}
 }

@@ -24,9 +24,9 @@ public class SettingsScenesTest extends ApplicationTest {
 	public void setUp() throws Exception {
 	}
 
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
+//	@Test
+//	public void test() {
+//		fail("Not yet implemented");
+//	}
 
 }
