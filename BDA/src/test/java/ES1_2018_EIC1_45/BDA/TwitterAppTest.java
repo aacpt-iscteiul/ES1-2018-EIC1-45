@@ -14,6 +14,12 @@ public class TwitterAppTest {
 	@Before
 	public void setUp() throws Exception{
 		twitterTest= new TwitterApp();
+		
+	}
+	
+	@Test
+	public void testJUnit() {
+		assertTrue(true);
 	}
 	
 	@Test
@@ -22,18 +28,13 @@ public class TwitterAppTest {
 	}
 
 	@Test
-	public void testGetUsertimeline() {
-		
+	public void getUserNotNull() {
+		assertNotNull(twitterTest.getUsername());
 	}
-
+	
 	@Test
-	public void testGetTimeline() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetTimelineSearch() {
-		fail("Not yet implemented");
+	public void getMyUsernameLengthShouldBeBiggerThanZero() {
+		assert(twitterTest.getUsername().length()>0);
 	}
 
 }
