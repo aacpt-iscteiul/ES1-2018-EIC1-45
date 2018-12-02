@@ -37,9 +37,10 @@ public class TwitterApp {
 		getStatus();
 		getTimeline();
 		getUsertimeline();
+		getUsername();
 	}
 /**
- * Metodo para por os tokens do twitter e buscar a lista de estados 
+ * Metodo para por os tokens do twitter 
  */
 	public void getStatus() {
 		try {
@@ -126,6 +127,22 @@ public class TwitterApp {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public String getUsername(){
+		
+		
+		try {
+			
+			return twitter.getScreenName();
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TwitterException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }
