@@ -103,20 +103,17 @@ public class EmailSender {
 	 * 
 	 * @param args String de argumentos
 	 */
-	public static void main(String[] args) {
-
-		String senderEmail = "es1_2018_45@outlook.pt";
-		String senderPassword = "isctegrupo45";
-		String receiverEmail = "es1_2018_45@outlook.pt";
-		String emailSubject = "This is a test email subject XII";
-		String emailBody = "This is a test email body X";
-
-		ReadAndWriteXML xml = new ReadAndWriteXML();
-		xml.writeToXML(senderEmail, senderPassword);
-//		xml.readFromXML();
-
+//	public static void main(String[] args) {
+//		
+//		String senderEmail = "es1_2018_45@outlook.pt";
+//		String senderPassword = "isctegrupo45";
+//		String receiverEmail = "es1_2018_45@outlook.pt";
+//		String emailSubject = "This is a test email subject XII";
+//		String emailBody = "This is a test email body X";
+//
+//
 //		EmailSender send = new EmailSender(receiverEmail, emailSubject, emailBody, senderEmail, senderPassword);
 //		send.sendEmail();
-	}
+//	}
 
 }

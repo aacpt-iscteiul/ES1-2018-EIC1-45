@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Users xmlns="Isto é a lista de utilizadores">
+<User>
+<email_address>emailAddress@mail.com</email_address>
+<email_password>emailPassword</email_password>
+<fb_username>fbUserName</fb_username>
+<fb_password>fbPassword</fb_password>
+<twt_username>twtUserName</twt_username>
+<twt_password>twtPassword</twt_password>
+</User>
+</Users>

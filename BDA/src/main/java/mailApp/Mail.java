@@ -50,4 +50,49 @@ public class Mail {
 		this.senderEmail = senderEmail;
 	}
 
+	/**
+	 * Método getter para o receiverEmail
+	 * 
+	 * @return receiverEmail
+	 */
+	public String getReceiverEmail() {
+		return receiverEmail;
+	}
+
+	/**
+	 * Método getter para o emailSubject
+	 * 
+	 * @return emailSubject
+	 */
+	public String getEmailSubject() {
+		return emailSubject;
+	}
+
+	/**
+	 * Método getter para o getEmailBody
+	 * 
+	 * @return
+	 */
+	public String getEmailBody() {
+		return emailBody;
+	}
+
+	/**
+	 * Método getter para o senderEmail
+	 * 
+	 * @return senderEmail
+	 */
+	public String getSenderEmail() {
+		return senderEmail;
+	}
+
+	/**
+	 * Método getter para o sentDate
+	 * 
+	 * @return sentDate
+	 */
+	public Date getSentDate() {
+		return sentDate;
+	}
+
 }
