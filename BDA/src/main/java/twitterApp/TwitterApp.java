@@ -173,7 +173,7 @@ public class TwitterApp {
 		return null;
 	}
 
-	public ArrayList<String> getFavorites(String search) {
+	public ArrayList<String> getFavorites() {
 
 		ArrayList<String> result = new ArrayList<String>();
 		try {
@@ -183,8 +183,6 @@ public class TwitterApp {
 
 				result.add(status.getUser().getName() + ":" + status.getText());
 			}
-			
-			
 
 		} catch (TwitterException e) {
 			// TODO Auto-generated catch block
@@ -192,7 +190,16 @@ public class TwitterApp {
 		}
 		return result;
 	}
-	
 
+	public void updateStatus(String status) {
+
+		try {
+			twitter.updateStatus(status);
+
+		} catch (TwitterException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }

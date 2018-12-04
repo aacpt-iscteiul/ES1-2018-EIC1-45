@@ -22,10 +22,7 @@ public class TwitterAppTest {
 		assertTrue(true);
 	}
 	
-	@Test
-	public void testGetStatus() {
-		fail("Not yet implemented");
-	}
+
 
 	@Test
 	public void getUserNotNull() {
