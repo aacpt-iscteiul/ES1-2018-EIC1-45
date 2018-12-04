@@ -10,7 +10,9 @@ import com.restfb.types.User;
 
 public class FacebookMain {
 	
-	String accessToken = "EAAIFIIEgfxIBADggr3JFRaxgbYP1l4zdOPMmJWHCCWLXIEhZCgRh689rwyIcdRWyBXaoq6zOyqOa9g0otVn09taEumGU6m0oF2oJ3ZC16RGdedZBCmbkVXx1dqkyiI3J41gx4m8tw819P4PmCsb2BngBlUwpr4MedqHfNDBuJPCruPsIJgyl3HTnl4xKfZAFh36vq949HRYNktXy0ALF";
+	//To get a long-lived token
+	//https://developers.facebook.com/tools/debug/accesstoken/?access_token=EAAIFIIEgfxIBAIT3qcNBBKXqZBaDBDBcQr7ecRIe8XJHscyZALanWpP5UkmSvw4fUh2dd1eeAH8DSEBp2xwf15r3c3mvtGTyct85LWTabBUcX7DRZAvEA43w8oR3Qg4ZAbrhZCzd1GZAiYZBjzBc6CE71p6vnSn0ZAtG0BjK4xxlZANErvOE9YELCTxX049v2RCq8tTKUgyE64xlqxkMJHSZCQVAainhXvm3QZD
+	String accessToken = "EAAIFIIEgfxIBAIZBSW7WG4lUNjJEZBnZAVmOpdFVznXZAgGZCeTLGfHQIN6intn0EIurHZCSae44rb8oXOBhnRXfu9YqpgaVbFBySsgXq4WwoCfZBurQGitZCHQbT18pGsMsSv3Eejj5vi7bAi4YZC7BRyGpF3bwdgQsnKZCGf1Cs2SPVJMfWrm44P";
 	FacebookClient fbClient ;
 	User me;
 	
@@ -26,7 +28,7 @@ public class FacebookMain {
 	
 	/**
 	 * 
-	 * Initialize variables/Start Connection
+	 * Initialize Variables/Start Connection
 	 * 
 	 */
 	
@@ -37,7 +39,8 @@ public class FacebookMain {
 	
 	
 	/**
-	 * Used mostly for debug or to get the entire User
+	 * Used mostly for debug or to get the entire User (Class User from library restFB)
+	 * Useful to see potential fields available.
 	 * 
 	 * @return User object
 	 */
@@ -61,10 +64,30 @@ public class FacebookMain {
 	 */
 	
 	public String getMyUsername() {
-		return me.getUsername();
+		return me.getName();
+	}
+	
+	/**
+	 * 
+	 * 		postNewPost
+	 * 
+	 * Cria um novo post feito pelo utilizador.
+	 * 
+	 * (In Development)
+	 * 
+	 */
+	
+	public void postNewPost() {
+		
 	}
 	
 	
+	/**
+	 * getPosts() - Used to get all the posts in the page.
+	 * Due to recent limitations on the API can only get "me" - Trying to find a solution, but there doesn't seem to be one with this API.
+	 * 
+	 * @return Connection<Post> List of all the posts
+	 */
 	
 	public Connection<Post> getPosts() {
 		
@@ -91,7 +114,7 @@ public class FacebookMain {
 	/**
 	 * 
 	 * Method to print what's being obtained from the current fetchConnection command.
-	 * Printing to console - Currently being used to 'debug' the API. 
+	 * Printing to console - Currently being used to 'debug'/test the API and token access. 
 	 * 
 	 */
 	
@@ -107,7 +130,7 @@ public class FacebookMain {
 		for (List<Post> page : result) {
 			
 			for (Post aPost : page) {
-				// Filters only posts that contain the word "Inform"
+				// Filters for posts. --- Many possibilities
 				if (aPost.getLikesCount()>=0) {
 					
 					System.out.println("---- Post "+ counter5 + " ----");
@@ -125,9 +148,16 @@ public class FacebookMain {
 				}
 				counterTotal++;
 			}
+			
 		}
 		
 		System.out.println("-------------\nNº of Results: " + counter5+"/"+counterTotal);
+		
+		// Test Below
+		/*System.out.println("Username:"+me.getId());
+		unsigned int a = Integer.parseInt(me.getId());
+		System.out.println("a"+a);
+		*/
 		
 	}
 	
