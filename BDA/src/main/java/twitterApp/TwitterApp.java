@@ -21,6 +21,11 @@ import twitter4j.conf.ConfigurationBuilder;
  */
 public class TwitterApp {
 
+	private String authConsumerKey = "FaI6Q7K5LmhNQC6U87n2qffpe";
+	private String authConsumerSecret = "vE0BgXPhwWg1obzg4y68NE79ebJspgiXsRk74tINiMbEYVshn3";
+	private String authAccessToken = "1054111224428986368-Q1PHXRIo9vq7IjeI1HvOGJkOoBGNxX";
+	private String authAccessTokenSecret = "vcqLcZosIvFZecOE8bgx13fE79CRTc2VNt7CjXZQoOBAX";
+
 	/**
 	 * Instancia do twitter
 	 */
@@ -43,10 +48,8 @@ public class TwitterApp {
 	public void getTwitterInstance() {
 		try {
 			ConfigurationBuilder cb = new ConfigurationBuilder();
-			cb.setDebugEnabled(true).setOAuthConsumerKey("FaI6Q7K5LmhNQC6U87n2qffpe")
-					.setOAuthConsumerSecret("vE0BgXPhwWg1obzg4y68NE79ebJspgiXsRk74tINiMbEYVshn3")
-					.setOAuthAccessToken("1054111224428986368-Q1PHXRIo9vq7IjeI1HvOGJkOoBGNxX")
-					.setOAuthAccessTokenSecret("vcqLcZosIvFZecOE8bgx13fE79CRTc2VNt7CjXZQoOBAX");
+			cb.setDebugEnabled(true).setOAuthConsumerKey(authConsumerKey).setOAuthConsumerSecret(authConsumerSecret)
+					.setOAuthAccessToken(authAccessToken).setOAuthAccessTokenSecret(authAccessTokenSecret);
 			TwitterFactory tf = new TwitterFactory(cb.build());
 			twitter = tf.getInstance();
 
@@ -201,5 +204,23 @@ public class TwitterApp {
 			e.printStackTrace();
 		}
 	}
+
+	public String getAuthConsumerKey() {
+		return authConsumerKey;
+	}
+
+	public String getAuthConsumerSecret() {
+		return authConsumerSecret;
+	}
+
+	public String getAuthAccessToken() {
+		return authAccessToken;
+	}
+
+	public String getAuthAccessTokenSecret() {
+		return authAccessTokenSecret;
+	}
+	
+	
 
 }

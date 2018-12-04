@@ -77,6 +77,10 @@ public class ReadAndWriteXML {
 			u.setFbPassword(getTagValue("fb_password", element));
 			u.setTwtUserName(getTagValue("twt_username", element));
 			u.setTwtPassword(getTagValue("twt_password", element));
+			u.setTwtAuthConsumerKey(getTagValue("auth_consumer_key", element));
+			u.setTwtAuthConsumerSecret(getTagValue("auth_consumer_secret", element));
+			u.setTwtAuthAccessToken(getTagValue("auth_access_Token", element));
+			u.setTwtAuthConsumerKey(getTagValue("auth_consumer_key", element));
 		}
 		return u;
 	}
@@ -110,13 +114,18 @@ public class ReadAndWriteXML {
 	 * 
 	 * @param emailAddress
 	 * @param emailPassword
-	 * @param twtPassword
-	 * @param twtUserName
-	 * @param fbPassword
 	 * @param fbUserName
+	 * @param fbPassword
+	 * @param twtUserName
+	 * @param twtPassword
+	 * @param twtAuthConsumerKey
+	 * @param twtAuthConsumerSecret
+	 * @param twtAuthAccessToken
+	 * @param twtAuthAccessTokenSecret
 	 */
 	public void writeToXML(String emailAddress, String emailPassword, String fbUserName, String fbPassword,
-			String twtUserName, String twtPassword) {
+			String twtUserName, String twtPassword, String twtAuthConsumerKey, String twtAuthConsumerSecret,
+			String twtAuthAccessToken, String twtAuthAccessTokenSecret) {
 
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder;
@@ -132,7 +141,8 @@ public class ReadAndWriteXML {
 
 			// adicionar primeiro elemento filho ao elemento raiz
 			rootElement.appendChild(
-					getUserNode(doc, emailAddress, emailPassword, fbUserName, fbPassword, twtUserName, twtPassword));
+					getUserNode(doc, emailAddress, emailPassword, fbUserName, fbPassword, twtUserName, twtPassword,
+							twtAuthConsumerKey, twtAuthConsumerSecret, twtAuthAccessToken, twtAuthAccessTokenSecret));
 
 			// fazer output para o ficheiro, consola
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -166,10 +176,15 @@ public class ReadAndWriteXML {
 	 * @param fbPassword
 	 * @param twtUserName
 	 * @param twtPassword
-	 * @return Node user
+	 * @param twtAuthConsumerKey
+	 * @param twtAuthConsumerSecret
+	 * @param twtAuthAccessToken
+	 * @param twtAuthAccessTokenSecret
+	 * @return
 	 */
 	private Node getUserNode(Document doc, String emailAddress, String emailPassword, String fbUserName,
-			String fbPassword, String twtUserName, String twtPassword) {
+			String fbPassword, String twtUserName, String twtPassword, String twtAuthConsumerKey,
+			String twtAuthConsumerSecret, String twtAuthAccessToken, String twtAuthAccessTokenSecret) {
 		Element user = doc.createElement("User");
 
 		// criar atributo id
@@ -192,7 +207,20 @@ public class ReadAndWriteXML {
 
 		// criar element twt_password
 		user.appendChild(getUserElements(doc, user, "twt_password", twtPassword));
+
+		// criar element auth_consumer_key
+		user.appendChild(getUserElements(doc, user, "auth_consumer_key", twtAuthConsumerKey));
+
+		// criar element auth_consumer_secret
+		user.appendChild(getUserElements(doc, user, "auth_consumer_secret", twtAuthConsumerSecret));
+
+		// criar element auth_access_Token
+		user.appendChild(getUserElements(doc, user, "auth_access_Token", twtAuthAccessToken));
+
+		// criar element auth_consumer_key
+		user.appendChild(getUserElements(doc, user, "auth_consumer_key", twtAuthAccessTokenSecret));
 		return user;
+
 	}
 
 	// metodo utilitário para criar nó de texto
@@ -224,9 +252,13 @@ public class ReadAndWriteXML {
 //		String fbPassword = "fbPassword";
 //		String twtUserName = "twtUserName";
 //		String twtPassword = "twtPassword";
+//	String twtAuthConsumerKey;
+//	String twtAuthConsumerSecret;
+//	String twtAuthAccessToken;
+//	String twtAuthAccessTokenSecret;
 //
 //		ReadAndWriteXML xml = new ReadAndWriteXML();
-//		xml.writeToXML(emailAddress, emailPassword, fbUserName, fbPassword, twtUserName, twtPassword);
+//		xml.writeToXML(emailAddress, emailPassword, fbUserName, fbPassword, twtUserName, twtPasswordtwtAuthConsumerKey, twtAuthConsumerSecret, twtAuthAccessToken, twtAuthAccessTokenSecret);
 //		xml.readFromXML();
 //	}
 }
