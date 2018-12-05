@@ -10,7 +10,7 @@ import XML.UserInfo;
  * Date: 25/11/2018 Classe de testes da classe UserInfoTest
  * 
  * @author António Teixeira
- * @version 1.0
+ * @version 1.1
  */
 public class UserInfoTest {
 

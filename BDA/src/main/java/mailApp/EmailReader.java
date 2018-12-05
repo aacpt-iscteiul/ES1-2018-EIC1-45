@@ -92,8 +92,8 @@ public class EmailReader {
 			Session mailSession = Session.getInstance(props);
 			// mailSession.setDebug(true);
 			Store emailStore = mailSession.getStore("imap");
-			emailStore.connect("imap-mail.outlook.com", receiverEmail, receiverPassword); 
-			
+			emailStore.connect("imap-mail.outlook.com", receiverEmail, receiverPassword);
+
 			// pasta inbox
 			Folder emailFolder = emailStore.getFolder("INBOX");
 			emailFolder.open(Folder.READ_ONLY);
@@ -208,14 +208,6 @@ public class EmailReader {
 	 * 
 	 * @param args String de argumentos
 	 */
-//	public static void main(String[] args) {
-//
-//		String receiverEmail = "es1_2018_45@outlook.pt";
-//		String receiverPassword = "isctegrupo45";
-//
-//		EmailReader read = new EmailReader(receiverEmail, receiverPassword);
-//		read.getMail();
-//	}
 //	public static void main(String[] args) {
 //
 //		String receiverEmail = "es1_2018_45@outlook.pt";

@@ -8,7 +8,7 @@ import XML.ReadAndWriteXML;
  * Date: 25/11/2018 Classe de testes da classe ReadAndWriteXMLTest
  * 
  * @author António Teixeira
- * @version 1.0
+ * @version 1.1
  */
 public class ReadAndWriteXMLTest {
 
