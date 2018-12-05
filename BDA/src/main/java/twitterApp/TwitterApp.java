@@ -175,8 +175,10 @@ public class TwitterApp {
 		}
 		return null;
 	}
+
 	/**
 	 * Metodo que devolve lista dos posts marcados como favoritos pelo utilizador
+	 * 
 	 * @return
 	 */
 
@@ -197,8 +199,10 @@ public class TwitterApp {
 		}
 		return result;
 	}
+
 	/**
 	 * Metodo que permite o utilizador criar um tweet
+	 * 
 	 * @param status
 	 */
 
@@ -228,7 +232,5 @@ public class TwitterApp {
 	public String getAuthAccessTokenSecret() {
 		return authAccessTokenSecret;
 	}
-	
-	
 
 }

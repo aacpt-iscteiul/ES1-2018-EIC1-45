@@ -144,8 +144,8 @@ public class EmailReader {
 		if (message.isMimeType("text/plain")) {
 			result = message.getContent().toString();
 		} else if (message.isMimeType("multipart/*")) {
-			MimeMultipart mimeMultipart = (MimeMultipart) message.getContent();
-			result = getTextFromMimeMultipart(mimeMultipart);
+//			MimeMultipart mimeMultipart = (MimeMultipart) message.getContent();
+//			result = getTextFromMimeMultipart(mimeMultipart);
 		}
 		return result;
 	}
@@ -161,22 +161,22 @@ public class EmailReader {
 	 * @throws MessagingException envia a exceção do tipo MessagingException para
 	 *                            quem chama o método.
 	 */
-	public String getTextFromMimeMultipart(MimeMultipart mimeMultipart) throws IOException, MessagingException {
-
-		int count = mimeMultipart.getCount();
-		if (count == 0)
-			throw new MessagingException("Multipart with no body parts not supported.");
-		boolean multipartAlt = new ContentType(mimeMultipart.getContentType()).match("multipart/alternative");
-		if (multipartAlt)
-			// alternativas aparecem pela ordem crescente
-			return getTextFromBodyPart(mimeMultipart.getBodyPart(count - 1));
-		String result = "";
-		for (int i = 0; i < count; i++) {
-			BodyPart bodyPart = mimeMultipart.getBodyPart(i);
-			result += getTextFromBodyPart(bodyPart);
-		}
-		return result;
-	}
+//	public String getTextFromMimeMultipart(MimeMultipart mimeMultipart) throws IOException, MessagingException {
+//
+//		int count = mimeMultipart.getCount();
+//		if (count == 0)
+//			throw new MessagingException("Multipart with no body parts not supported.");
+//		boolean multipartAlt = new ContentType(mimeMultipart.getContentType()).match("multipart/alternative");
+//		if (multipartAlt)
+//			// alternativas aparecem pela ordem crescente
+//			return getTextFromBodyPart(mimeMultipart.getBodyPart(count - 1));
+//		String result = "";
+//		for (int i = 0; i < count; i++) {
+//			BodyPart bodyPart = mimeMultipart.getBodyPart(i);
+//			result += getTextFromBodyPart(bodyPart);
+//		}
+//		return result;
+//	}
 
 	/**
 	 * Método auxiliar de getTextFromMimeMultipart() que devolve o texto da mensagem
@@ -190,18 +190,18 @@ public class EmailReader {
 	 *                            quem chama o método.
 	 */
 
-	public String getTextFromBodyPart(BodyPart bodyPart) throws IOException, MessagingException {
-		String result = "";
-		if (bodyPart.isMimeType("text/plain")) {
-			result = (String) bodyPart.getContent();
-		} else if (bodyPart.isMimeType("text/html")) {
-			String html = (String) bodyPart.getContent();
-			result = org.jsoup.Jsoup.parse(html).text();
-		} else if (bodyPart.getContent() instanceof MimeMultipart) {
-			result = getTextFromMimeMultipart((MimeMultipart) bodyPart.getContent());
-		}
-		return result;
-	}
+//	public String getTextFromBodyPart(BodyPart bodyPart) throws IOException, MessagingException {
+//		String result = "";
+//		if (bodyPart.isMimeType("text/plain")) {
+//			result = (String) bodyPart.getContent();
+//		} else if (bodyPart.isMimeType("text/html")) {
+//			String html = (String) bodyPart.getContent();
+//			result = org.jsoup.Jsoup.parse(html).text();
+//		} else if (bodyPart.getContent() instanceof MimeMultipart) {
+//			result = getTextFromMimeMultipart((MimeMultipart) bodyPart.getContent());
+//		}
+//		return result;
+//	}
 
 	/**
 	 * Método Main desta classe que serve para testar as funcionalidades da mesma
