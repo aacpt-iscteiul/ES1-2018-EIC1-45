@@ -70,9 +70,8 @@ public class MailAppTester {
 
 	/**
 	 * Método para testar a classe MailAppTester
-	 */
-	/**
 	 * 
+	 * @throws Exception Exception
 	 */
 	@Test
 	public void test() throws Exception {
@@ -173,7 +172,7 @@ public class MailAppTester {
 	 * 
 	 * @param mimeMultipart argumento do tipo mimeMultipart
 	 * @return Devolve uma String que corresponde ao texto da mensagem de email
-	 * @throws Exception 
+	 * @throws Exception Exception
 	 */
 	public String getTextFromMimeMultipart(MimeMultipart mimeMultipart) throws Exception {
 

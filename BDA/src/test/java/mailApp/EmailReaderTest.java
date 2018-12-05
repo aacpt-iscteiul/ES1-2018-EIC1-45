@@ -51,6 +51,8 @@ public class EmailReaderTest {
 
 	/**
 	 * Método para testar a classe EmailReader
+	 * 
+	 * @throws Exception Exception
 	 */
 	@Test
 	public void test() throws Exception {

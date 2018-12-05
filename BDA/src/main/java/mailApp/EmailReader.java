@@ -21,7 +21,7 @@ import javax.mail.internet.MimeMultipart;
  * * Date: 25/10/2018 Classe para ler emails na consola
  * 
  * @author António Teixeira
- * @version 1.02
+ * @version 1.03
  *
  */
 
@@ -74,7 +74,7 @@ public class EmailReader {
 	/**
 	 * Método auxiliar ao GUI que devolve um corpo de email
 	 * 
-	 * @param index
+	 * @param index int
 	 * @return mails.get(index).getEmailBody()
 	 */
 	public String getBodyOf(int index) {
