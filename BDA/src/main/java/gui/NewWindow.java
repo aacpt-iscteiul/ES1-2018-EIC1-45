@@ -1,13 +1,8 @@
 package gui;
 
+
+import facebookApp.FacebookMain;
 import javafx.application.Application;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import mailApp.EmailReader;
 
@@ -15,9 +10,7 @@ public class NewWindow extends Application{
 
 	public static final int HEIGHT = 600, WIDTH = 1000;
 	static EmailReader readMail;
-	private Stage primaryStage;
-	private DefaultScene myScene;
-	
+	static FacebookMain fb;
 	
 	public static void main(String[] args) {
 		//MAIL
@@ -25,6 +18,9 @@ public class NewWindow extends Application{
 		String receiverPassword = "isctegrupo45";
 		readMail = new EmailReader(receiverEmail, receiverPassword);
 		readMail.getMail();
+		//FACEBOOK
+		fb = new FacebookMain();
+		fb.init();
 		
 		NewWindow gui = new NewWindow();
 		Application.launch(gui.getClass(), args);
@@ -39,8 +35,7 @@ public class NewWindow extends Application{
 		primaryStage.setMinWidth(400);
 
 		// Stage Show
-		primaryStage.setScene(myScene.getScene());
-		this.primaryStage = primaryStage;
+		primaryStage.setScene(DefaultScene.getScene());
 		primaryStage.show();
 	}	
 	
