@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PackageAnalysis>
+    <Package name="facebookApp" x="247" y="182"/>
+    <Package name="gui" x="150" y="130">
+        <DependencyLink destination="mailApp"/>
+    </Package>
+    <Package name="mailApp" x="72" y="237"/>
+    <Package name="twitterApp" x="406" y="213"/>
+    <Package name="XML" x="206" y="251"/>
+    <Package name="ES1_2018_EIC1_45.BDA" x="313" y="97">
+        <DependencyLink destination="facebookApp"/>
+        <DependencyLink destination="twitterApp"/>
+        <DependencyLink destination="gui"/>
+    </Package>
+</PackageAnalysis>

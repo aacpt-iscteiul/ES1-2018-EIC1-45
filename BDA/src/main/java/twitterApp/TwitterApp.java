@@ -175,6 +175,10 @@ public class TwitterApp {
 		}
 		return null;
 	}
+	/**
+	 * Metodo que devolve lista dos posts marcados como favoritos pelo utilizador
+	 * @return
+	 */
 
 	public ArrayList<String> getFavorites() {
 
@@ -193,6 +197,10 @@ public class TwitterApp {
 		}
 		return result;
 	}
+	/**
+	 * Metodo que permite o utilizador criar um tweet
+	 * @param status
+	 */
 
 	public void updateStatus(String status) {
 

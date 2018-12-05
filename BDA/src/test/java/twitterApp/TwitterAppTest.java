@@ -1,4 +1,4 @@
-package ES1_2018_EIC1_45.BDA;
+package twitterApp;
 
 import static org.junit.Assert.*;
 
