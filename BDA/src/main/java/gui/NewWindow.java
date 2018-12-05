@@ -15,6 +15,9 @@ public class NewWindow extends Application{
 
 	public static final int HEIGHT = 600, WIDTH = 1000;
 	static EmailReader readMail;
+	private Stage primaryStage;
+	private DefaultScene myScene;
+	
 	
 	public static void main(String[] args) {
 		//MAIL
@@ -36,7 +39,8 @@ public class NewWindow extends Application{
 		primaryStage.setMinWidth(400);
 
 		// Stage Show
-		primaryStage.setScene(DefaultScene.getScene());
+		primaryStage.setScene(myScene.getScene());
+		this.primaryStage = primaryStage;
 		primaryStage.show();
 	}	
 	
