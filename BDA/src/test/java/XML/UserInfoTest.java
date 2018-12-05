@@ -30,16 +30,25 @@ public class UserInfoTest {
 	 */
 	@Test
 	public void testUserInfoStringString() {
-		u = new UserInfo("emailAddress", "emailPassword", "fbUserName", "fbPassword", "twtUserName", "twtPassword");
+		u = new UserInfo("emailAddress", "emailPassword", "fbUserName", "fbPassword", "twtUserName", "twtPassword",
+				"twtAuthConsumerKey", "twtAuthConsumerSecret", "twtAuthAccessToken", "twtAuthAccessTokenSecret");
 		assertNotNull(u);
 	}
 
+	// ************************************
+	// ************************************
+	// ************************************
+	// ******************************** TESTES AOS GETTERS
+	// ************************************
+	// ************************************
+	// ************************************
 	/**
 	 * Método para testar o getEmailAddress()
 	 */
 	@Test
 	public void testGetEmailAddress() {
-		u = new UserInfo("emailAddress", "emailPassword", "fbUserName", "fbPassword", "twtUserName", "twtPassword");
+		u = new UserInfo("emailAddress", "emailPassword", "fbUserName", "fbPassword", "twtUserName", "twtPassword",
+				"twtAuthConsumerKey", "twtAuthConsumerSecret", "twtAuthAccessToken", "twtAuthAccessTokenSecret");
 		assertEquals("emailAddress", u.getEmailAddress());
 	}
 
@@ -48,7 +57,8 @@ public class UserInfoTest {
 	 */
 	@Test
 	public void testGetEmailPassword() {
-		u = new UserInfo("emailAddress", "emailPassword", "fbUserName", "fbPassword", "twtUserName", "twtPassword");
+		u = new UserInfo("emailAddress", "emailPassword", "fbUserName", "fbPassword", "twtUserName", "twtPassword",
+				"twtAuthConsumerKey", "twtAuthConsumerSecret", "twtAuthAccessToken", "twtAuthAccessTokenSecret");
 		assertEquals("emailPassword", u.getEmailPassword());
 	}
 
@@ -57,7 +67,8 @@ public class UserInfoTest {
 	 */
 	@Test
 	public void testGetFbUserName() {
-		u = new UserInfo("emailAddress", "emailPassword", "fbUserName", "fbPassword", "twtUserName", "twtPassword");
+		u = new UserInfo("emailAddress", "emailPassword", "fbUserName", "fbPassword", "twtUserName", "twtPassword",
+				"twtAuthConsumerKey", "twtAuthConsumerSecret", "twtAuthAccessToken", "twtAuthAccessTokenSecret");
 		assertEquals("fbUserName", u.getFbUserName());
 	}
 
@@ -66,7 +77,8 @@ public class UserInfoTest {
 	 */
 	@Test
 	public void testGetFbPassword() {
-		u = new UserInfo("emailAddress", "emailPassword", "fbUserName", "fbPassword", "twtUserName", "twtPassword");
+		u = new UserInfo("emailAddress", "emailPassword", "fbUserName", "fbPassword", "twtUserName", "twtPassword",
+				"twtAuthConsumerKey", "twtAuthConsumerSecret", "twtAuthAccessToken", "twtAuthAccessTokenSecret");
 		assertEquals("fbPassword", u.getFbPassword());
 	}
 
@@ -75,7 +87,8 @@ public class UserInfoTest {
 	 */
 	@Test
 	public void testGetTwtUserName() {
-		u = new UserInfo("emailAddress", "emailPassword", "fbUserName", "fbPassword", "twtUserName", "twtPassword");
+		u = new UserInfo("emailAddress", "emailPassword", "fbUserName", "fbPassword", "twtUserName", "twtPassword",
+				"twtAuthConsumerKey", "twtAuthConsumerSecret", "twtAuthAccessToken", "twtAuthAccessTokenSecret");
 		assertEquals("twtUserName", u.getTwtUserName());
 	}
 
@@ -84,16 +97,65 @@ public class UserInfoTest {
 	 */
 	@Test
 	public void testGetTwtPassword() {
-		u = new UserInfo("emailAddress", "emailPassword", "fbUserName", "fbPassword", "twtUserName", "twtPassword");
+		u = new UserInfo("emailAddress", "emailPassword", "fbUserName", "fbPassword", "twtUserName", "twtPassword",
+				"twtAuthConsumerKey", "twtAuthConsumerSecret", "twtAuthAccessToken", "twtAuthAccessTokenSecret");
 		assertEquals("twtPassword", u.getTwtPassword());
 	}
+
+	/**
+	 * Método para testar o getTwtAuthConsumerKey()
+	 */
+	@Test
+	public void testgetTwtAuthConsumerKey() {
+		u = new UserInfo("emailAddress", "emailPassword", "fbUserName", "fbPassword", "twtUserName", "twtPassword",
+				"twtAuthConsumerKey", "twtAuthConsumerSecret", "twtAuthAccessToken", "twtAuthAccessTokenSecret");
+		assertEquals("twtAuthConsumerKey", u.getTwtAuthConsumerKey());
+	}
+
+	/**
+	 * Método para testar o getTwtAuthConsumerSecret()
+	 */
+	@Test
+	public void testgetTwtAuthConsumerSecret() {
+		u = new UserInfo("emailAddress", "emailPassword", "fbUserName", "fbPassword", "twtUserName", "twtPassword",
+				"twtAuthConsumerKey", "twtAuthConsumerSecret", "twtAuthAccessToken", "twtAuthAccessTokenSecret");
+		assertEquals("twtAuthConsumerSecret", u.getTwtAuthConsumerSecret());
+	}
+
+	/**
+	 * Método para testar o getTwtAuthAccessToken()
+	 */
+	@Test
+	public void testgetTwtAuthAccessToken() {
+		u = new UserInfo("emailAddress", "emailPassword", "fbUserName", "fbPassword", "twtUserName", "twtPassword",
+				"twtAuthConsumerKey", "twtAuthConsumerSecret", "twtAuthAccessToken", "twtAuthAccessTokenSecret");
+		assertEquals("twtAuthAccessToken", u.getTwtAuthAccessToken());
+	}
+
+	/**
+	 * Método para testar o getTwtPassword()
+	 */
+	@Test
+	public void testgetTwtAuthAccessTokenSecret() {
+		u = new UserInfo("emailAddress", "emailPassword", "fbUserName", "fbPassword", "twtUserName", "twtPassword",
+				"twtAuthConsumerKey", "twtAuthConsumerSecret", "twtAuthAccessToken", "twtAuthAccessTokenSecret");
+		assertEquals("twtAuthAccessTokenSecret", u.getTwtAuthAccessTokenSecret());
+	}
+
+	// ************************************
+	// ************************************
+	// ************************************
+	// ******************************** TESTES AOS SETTERS
+	// ************************************
+	// ************************************
+	// ************************************
 
 	/**
 	 * Método para testar o setEmailAddress()
 	 */
 	@Test
 	public void testSetEmailAddress() {
-		u = new UserInfo("", "emailPassword", "", "", "", "");
+		u = new UserInfo("", "emailPassword", "", "", "", "", "", "", "", "");
 		u.setEmailAddress("emailAddress");
 		assertEquals("emailAddress", u.getEmailAddress());
 	}
@@ -103,7 +165,7 @@ public class UserInfoTest {
 	 */
 	@Test
 	public void testSetEmailPassword() {
-		u = new UserInfo("emailAddress", "", "", "", "", "");
+		u = new UserInfo("emailAddress", "", "", "", "", "", "", "", "", "");
 		u.setEmailPassword("emailPassword");
 		assertEquals("emailPassword", u.getEmailPassword());
 	}
@@ -113,7 +175,7 @@ public class UserInfoTest {
 	 */
 	@Test
 	public void testSetFbUserName() {
-		u = new UserInfo("", "", "fbUserName", "", "", "");
+		u = new UserInfo("", "", "fbUserName", "", "", "", "", "", "", "");
 		u.setFbUserName("fbUserName");
 		assertEquals("fbUserName", u.getFbUserName());
 	}
@@ -123,7 +185,7 @@ public class UserInfoTest {
 	 */
 	@Test
 	public void testSetFbPassword() {
-		u = new UserInfo("", "", "", "fbPassword", "", "");
+		u = new UserInfo("", "", "", "fbPassword", "", "", "", "", "", "");
 		u.setFbPassword("fbPassword");
 		assertEquals("fbPassword", u.getFbPassword());
 	}
@@ -133,7 +195,7 @@ public class UserInfoTest {
 	 */
 	@Test
 	public void testSetTwtUserName() {
-		u = new UserInfo("", "", "", "", "twtUserName", "");
+		u = new UserInfo("", "", "", "", "twtUserName", "", "", "", "", "");
 		u.setTwtUserName("twtUserName");
 		assertEquals("twtUserName", u.getTwtUserName());
 	}
@@ -143,9 +205,49 @@ public class UserInfoTest {
 	 */
 	@Test
 	public void testSetTwtPassword() {
-		u = new UserInfo("", "", "", "", "", "twtPassword");
+		u = new UserInfo("", "", "", "", "", "twtPassword", "", "", "", "");
 		u.setTwtPassword("twtPassword");
 		assertEquals("twtPassword", u.getTwtPassword());
+	}
+
+	/**
+	 * Método para testar o setTwtAuthConsumerSecret()
+	 */
+	@Test
+	public void testsetTwtAuthConsumerSecret() {
+		u = new UserInfo("", "", "", "", "", "", "twtAuthConsumerKey", "", "", "");
+		u.setTwtAuthConsumerSecret("twtAuthConsumerKey");
+		assertEquals("twtAuthConsumerKey", u.getTwtAuthConsumerKey());
+	}
+
+	/**
+	 * Método para testar o setTwtAuthConsumerKey()
+	 */
+	@Test
+	public void testsetTwtAuthConsumerKey() {
+		u = new UserInfo("", "", "", "", "", "", "", "twtAuthConsumerKey", "", "");
+		u.setTwtAuthConsumerKey("twtAuthConsumerKey");
+		assertEquals("twtAuthConsumerKey", u.getTwtAuthConsumerKey());
+	}
+
+	/**
+	 * Método para testar o setTwtAuthAccessToken()
+	 */
+	@Test
+	public void testsetTwtAuthAccessToken() {
+		u = new UserInfo("", "", "", "", "", "", "", "", "twtAuthAccessToken", "");
+		u.setTwtAuthAccessToken("twtAuthAccessToken");
+		assertEquals("twtAuthAccessToken", u.getTwtAuthAccessToken());
+	}
+
+	/**
+	 * Método para testar o setTwtAuthAccessToken()
+	 */
+	@Test
+	public void testsetTwtAuthAccessTokenSecret() {
+		u = new UserInfo("", "", "", "", "", "", "", "", "", "twtAuthAccessTokenSecret");
+		u.setTwtAuthAccessTokenSecret("twtAuthAccessTokenSecret");
+		assertEquals("twtAuthAccessTokenSecret", u.getTwtAuthAccessTokenSecret());
 	}
 
 }

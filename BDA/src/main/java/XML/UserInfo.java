@@ -36,6 +36,25 @@ public class UserInfo {
 	private String twtPassword;
 
 	/**
+	 * Valor String para guardar o AuthConsumerKey do twitter do utilizador
+	 */
+	private String twtAuthConsumerKey;
+
+	/**
+	 * Valor String para guardar o AuthConsumerSecret do twitter do utilizador
+	 */
+	private String twtAuthConsumerSecret;
+
+	/**
+	 * Valor String para guardar o AuthAccessToken do twitter do utilizador
+	 */
+	private String twtAuthAccessToken;
+	/**
+	 * Valor String para guardar o AuthAccessTokenSecret do twitter do utilizador
+	 */
+	private String twtAuthAccessTokenSecret;
+
+	/**
 	 * Construtor sem elementos para auxiliar a utilização do XML
 	 */
 	public UserInfo() {
@@ -44,21 +63,29 @@ public class UserInfo {
 	/**
 	 * Construtor da classe UserInfo
 	 * 
-	 * @param emailAddress  primeiro argumento String
-	 * @param emailPassword segundo argumento String
-	 * @param fbUserName    terceiro argumento String
-	 * @param fbPassword    quarto argumento String
-	 * @param twtUserName   quinto argumento String
-	 * @param twtPassword   sexto argumento String
+	 * @param emailAddress
+	 * @param emailPassword
+	 * @param fbUserName
+	 * @param fbPassword
+	 * @param twtUserName
+	 * @param twtPassword
+	 * @param twtAuthConsumerKey
+	 * @param twtAuthConsumerSecret
+	 * @param twtAuthAccessToken
+	 * @param twtAuthAccessTokenSecret
 	 */
-	public UserInfo(String emailAddress, String emailPassword, String fbUserName, String fbPassword, String twtUserName,
-			String twtPassword) {
+	public UserInfo(String emailAddress, String emailPassword, String fbUserName, String fbPassword, String twtUserName, String twtPassword, String twtAuthConsumerKey, String twtAuthConsumerSecret, String twtAuthAccessToken,
+			String twtAuthAccessTokenSecret) {
 		this.emailAddress = emailAddress;
 		this.emailPassword = emailPassword;
 		this.fbUserName = fbUserName;
 		this.fbPassword = fbPassword;
 		this.twtUserName = twtUserName;
 		this.twtPassword = twtPassword;
+		this.twtAuthConsumerKey = twtAuthConsumerKey;
+		this.twtAuthConsumerSecret = twtAuthConsumerSecret;
+		this.twtAuthAccessToken = twtAuthAccessToken;
+		this.twtAuthAccessTokenSecret = twtAuthAccessTokenSecret;
 	}
 
 	/**
@@ -116,6 +143,42 @@ public class UserInfo {
 	}
 
 	/**
+	 * Getter para o twtAuthConsumerKey
+	 * 
+	 * @return twtAuthConsumerKey
+	 */
+	public String getTwtAuthConsumerKey() {
+		return twtAuthConsumerKey;
+	}
+
+	/**
+	 * Getter para o twtAuthConsumerSecret
+	 * 
+	 * @return twtAuthConsumerSecret
+	 */
+	public String getTwtAuthConsumerSecret() {
+		return twtAuthConsumerSecret;
+	}
+
+	/**
+	 * Getter para o twtAuthAccessToken
+	 * 
+	 * @return twtAuthAccessToken
+	 */
+	public String getTwtAuthAccessToken() {
+		return twtAuthAccessToken;
+	}
+
+	/**
+	 * Getter para o twtAuthAccessTokenSecret
+	 * 
+	 * @return twtAuthAccessTokenSecret
+	 */
+	public String getTwtAuthAccessTokenSecret() {
+		return twtAuthAccessTokenSecret;
+	}
+
+	/**
 	 * Setter para o emailAddress
 	 * 
 	 * @param emailAddress
@@ -167,6 +230,42 @@ public class UserInfo {
 	 */
 	public void setTwtPassword(String twtPassword) {
 		this.twtPassword = twtPassword;
+	}
+
+	/**
+	 * Setter para o twtAuthConsumerKey
+	 * 
+	 * @param twtAuthConsumerKey
+	 */
+	public void setTwtAuthConsumerSecret(String twtAuthConsumerSecret) {
+		this.twtAuthConsumerSecret = twtAuthConsumerSecret;
+	}
+
+	/**
+	 * Setter para o twtAuthConsumerSecret
+	 * 
+	 * @param twtAuthConsumerSecret
+	 */
+	public void setTwtAuthConsumerKey(String twtAuthConsumerKey) {
+		this.twtAuthConsumerKey = twtAuthConsumerKey;
+	}
+
+	/**
+	 * Setter para o twtAuthAccessToken
+	 * 
+	 * @param twtAuthAccessToken
+	 */
+	public void setTwtAuthAccessToken(String twtAuthAccessToken) {
+		this.twtAuthAccessToken = twtAuthAccessToken;
+	}
+
+	/**
+	 * Setter para o twtAuthAccessTokenSecret
+	 * 
+	 * @param twtAuthAccessTokenSecret
+	 */
+	public void setTwtAuthAccessTokenSecret(String twtAuthAccessTokenSecret) {
+		this.twtAuthAccessTokenSecret = twtAuthAccessTokenSecret;
 	}
 
 }

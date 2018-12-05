@@ -79,8 +79,8 @@ public class ReadAndWriteXML {
 			u.setTwtPassword(getTagValue("twt_password", element));
 			u.setTwtAuthConsumerKey(getTagValue("auth_consumer_key", element));
 			u.setTwtAuthConsumerSecret(getTagValue("auth_consumer_secret", element));
-			u.setTwtAuthAccessToken(getTagValue("auth_access_Token", element));
-			u.setTwtAuthConsumerKey(getTagValue("auth_consumer_key", element));
+			u.setTwtAuthAccessToken(getTagValue("auth_access_token", element));
+			u.setTwtAuthAccessTokenSecret(getTagValue("auth_access_token_secret", element));
 		}
 		return u;
 	}
@@ -214,11 +214,11 @@ public class ReadAndWriteXML {
 		// criar element auth_consumer_secret
 		user.appendChild(getUserElements(doc, user, "auth_consumer_secret", twtAuthConsumerSecret));
 
-		// criar element auth_access_Token
-		user.appendChild(getUserElements(doc, user, "auth_access_Token", twtAuthAccessToken));
+		// criar element auth_access_token
+		user.appendChild(getUserElements(doc, user, "auth_access_token", twtAuthAccessToken));
 
-		// criar element auth_consumer_key
-		user.appendChild(getUserElements(doc, user, "auth_consumer_key", twtAuthAccessTokenSecret));
+		// criar element auth_access_token_secret
+		user.appendChild(getUserElements(doc, user, "auth_access_token_secret", twtAuthAccessTokenSecret));
 		return user;
 
 	}
@@ -244,21 +244,22 @@ public class ReadAndWriteXML {
 	 * 
 	 * @param args
 	 */
-//	public static void main(String[] args) {
-//
-//		String emailAddress = "emailAddress@mail.com";
-//		String emailPassword = "emailPassword";
-//		String fbUserName = "fbUserName";
-//		String fbPassword = "fbPassword";
-//		String twtUserName = "twtUserName";
-//		String twtPassword = "twtPassword";
-//	String twtAuthConsumerKey;
-//	String twtAuthConsumerSecret;
-//	String twtAuthAccessToken;
-//	String twtAuthAccessTokenSecret;
-//
-//		ReadAndWriteXML xml = new ReadAndWriteXML();
-//		xml.writeToXML(emailAddress, emailPassword, fbUserName, fbPassword, twtUserName, twtPasswordtwtAuthConsumerKey, twtAuthConsumerSecret, twtAuthAccessToken, twtAuthAccessTokenSecret);
-//		xml.readFromXML();
-//	}
+	public static void main(String[] args) {
+
+		String emailAddress = "emailAddress@mail.com";
+		String emailPassword = "emailPassword";
+		String fbUserName = "fbUserName";
+		String fbPassword = "fbPassword";
+		String twtUserName = "twtUserName";
+		String twtPassword = "twtPassword";
+		String twtAuthConsumerKey = "FaI6Q7K5LmhNQC6U87n2qffpe";
+		String twtAuthConsumerSecret = "vE0BgXPhwWg1obzg4y68NE79ebJspgiXsRk74tINiMbEYVshn3";
+		String twtAuthAccessToken = "1054111224428986368-Q1PHXRIo9vq7IjeI1HvOGJkOoBGNxX";
+		String twtAuthAccessTokenSecret = "vcqLcZosIvFZecOE8bgx13fE79CRTc2VNt7CjXZQoOBAX";
+
+		ReadAndWriteXML xml = new ReadAndWriteXML();
+		xml.writeToXML(emailAddress, emailPassword, fbUserName, fbPassword, twtUserName, twtPassword,
+				twtAuthConsumerKey, twtAuthConsumerSecret, twtAuthAccessToken, twtAuthAccessTokenSecret);
+		xml.readFromXML();
+	}
 }

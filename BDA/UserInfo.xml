@@ -7,5 +7,9 @@
 <fb_password>fbPassword</fb_password>
 <twt_username>twtUserName</twt_username>
 <twt_password>twtPassword</twt_password>
+<auth_consumer_key>FaI6Q7K5LmhNQC6U87n2qffpe</auth_consumer_key>
+<auth_consumer_secret>vE0BgXPhwWg1obzg4y68NE79ebJspgiXsRk74tINiMbEYVshn3</auth_consumer_secret>
+<auth_access_token>1054111224428986368-Q1PHXRIo9vq7IjeI1HvOGJkOoBGNxX</auth_access_token>
+<auth_access_token_secret>vcqLcZosIvFZecOE8bgx13fE79CRTc2VNt7CjXZQoOBAX</auth_access_token_secret>
 </User>
 </Users>
