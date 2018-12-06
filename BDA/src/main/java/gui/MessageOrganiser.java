@@ -17,6 +17,10 @@ public class MessageOrganiser {
 	private static List<Mail> mails;
 	private static Connection<Post> posts; 
 	
+	/**
+	 * Gets and sets the lists for the gui to use
+	 * */
+	
 	public static void setLists() {
 		mails = NewWindow.readMail.getMailList();
 		posts = NewWindow.fb.getPosts();
@@ -33,10 +37,23 @@ public class MessageOrganiser {
 		}
 	}
 
+	
+	/**
+	 * returns the body of the selected title
+	 * 
+	 * @param selectedIndex
+	 * 
+	 * @return body
+	 * */
 	public static String getBodies(int selectedIndex) {
 		return bodies.get(selectedIndex);
 	}
 
+	/**
+	 * returns all titles in a List
+	 * 
+	 * @return titles
+	 * */	
 	public static List<String> getTitles() {
 		return titles;
 	}

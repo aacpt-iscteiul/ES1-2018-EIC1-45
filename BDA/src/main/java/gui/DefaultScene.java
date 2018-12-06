@@ -23,6 +23,10 @@ public class DefaultScene{
 	private static String[] timeFilterName = {"Everything", "7 days", "24 hours"};
 	private static int timeInt = 0;
 	
+	/**
+	 * Returns the main and only scene for the program
+	 * @return scene
+	 * */
 	public static Scene getScene() {
 		BorderPane frame = new BorderPane();
 		
@@ -105,6 +109,13 @@ public class DefaultScene{
 		
 	}
 	
+	/**
+	 * Sets/updated the list and body area
+	 * 
+	 * @param listview
+	 * @param textarea
+	 * 
+	 * */
 	private static void setList(ListView<String> list, TextArea body) {
 		MessageOrganiser.setLists();
 		if (list.getItems() != null)
@@ -120,6 +131,14 @@ public class DefaultScene{
 		}list.getSelectionModel().select(0);
 	}
 
+	/**
+	 * Creates most buttons for the program, including filters
+	 * 
+	 * @param listview
+	 * @param textarea
+	 * 
+	 * @return hbox with the options
+	 * */
 	private static HBox buttonsOptions(ListView<String> list, TextArea body) {
 		HBox options = new HBox(10);
 		options.setPadding(new Insets(0, 0, 0, 10));
