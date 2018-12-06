@@ -117,7 +117,7 @@ public class FacebookMain {
 	 * Printing to console - Currently being used to 'debug'/test the API and token access. 
 	 * 
 	 */
-	
+	/*
 	public void printSys() {
 		
 
@@ -157,9 +157,10 @@ public class FacebookMain {
 		/*System.out.println("Username:"+me.getId());
 		unsigned int a = Integer.parseInt(me.getId());
 		System.out.println("a"+a);
-		*/
+		
 		
 	}
+*/
 	
 	public static void main(String[] args) {	
 		/* 
@@ -169,7 +170,7 @@ public class FacebookMain {
 		
 		FacebookMain fb = new FacebookMain();
 		fb.init();
-		fb.printSys();
+		//fb.printSys();
 		
 		
 	}

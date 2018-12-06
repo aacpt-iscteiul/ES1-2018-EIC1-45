@@ -67,4 +67,5 @@ public class FacebookMainTest {
 		assert(Long.valueOf(fb.getMyID())>0);
 	}
 	
+	
 }
