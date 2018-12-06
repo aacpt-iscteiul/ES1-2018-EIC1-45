@@ -106,7 +106,7 @@ public class EmailReaderTest {
 		assertNotNull(messageBoby);
 		assertNotNull(subject);
 		assertNotNull(getMailList());
-
+		
 		assertEquals("This is a test email subject 5", subject);
 		assertEquals("This is a test email body V", messageBoby.trim());
 

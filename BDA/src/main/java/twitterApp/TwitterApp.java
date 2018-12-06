@@ -21,11 +21,22 @@ import twitter4j.conf.ConfigurationBuilder;
  */
 public class TwitterApp {
 
+	/**
+	 * String authConsumerKey
+	 */
 	private String authConsumerKey = "FaI6Q7K5LmhNQC6U87n2qffpe";
+	/**
+	 * String authConsumerSecret
+	 */
 	private String authConsumerSecret = "vE0BgXPhwWg1obzg4y68NE79ebJspgiXsRk74tINiMbEYVshn3";
+	/**
+	 * String authAccessToken
+	 */
 	private String authAccessToken = "1054111224428986368-Q1PHXRIo9vq7IjeI1HvOGJkOoBGNxX";
+	/**
+	 * String authAccessTokenSecret
+	 */
 	private String authAccessTokenSecret = "vcqLcZosIvFZecOE8bgx13fE79CRTc2VNt7CjXZQoOBAX";
-
 	/**
 	 * Instancia do twitter
 	 */
