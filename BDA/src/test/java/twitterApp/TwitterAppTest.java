@@ -33,5 +33,63 @@ public class TwitterAppTest {
 	public void getMyUsernameLengthShouldBeBiggerThanZero() {
 		assert(twitterTest.getUsername().length()>0);
 	}
+	
+	@Test
+	public void getTimelineNotNull() {
+		assertNotNull(twitterTest.getTimeline());
+	}
+	
+	@Test
+	public void getTimelineSearchUserTweetseNotNull() {
+		assertNotNull(twitterTest.getTimelineSearchUserTweets("IscteG"));
+	}
+	
+	@Test
+	public void getTimelineSearchTweetsNotNull() {
+		assertNotNull(twitterTest.getTimelineSearchTweets("Hello"));
+	}
+	
+	@Test
+	public void getUsernameNotNull() {
+		assertNotNull(twitterTest.getUsername());
+	}
+	
+	@Test
+	public void getFavoritesNotNull() {
+		assertNotNull(twitterTest.getFavorites());
+	}
+	
+	@Test
+	public void getUsertimelineNotNull() {
+		assertNotNull(twitterTest.getUsertimeline());
+	}
+	
+	@Test
+	public void getAuthConsumerKeyTest() {
+		assert(twitterTest.getAuthConsumerKey().length()>0);
+		
+	}
+	
+	@Test
+	public void getAuthConsumerSecretTest() {
+		assert(twitterTest.getAuthConsumerSecret().length()>0);
+		
+	}
+
+	@Test
+	public void getAuthAccessTokenTest() {
+		assert(twitterTest.getAuthAccessToken().length()>0);
+		
+	}
+
+	@Test
+	public void getAuthAccessTokenSecretTest() {
+		assert(twitterTest.getAuthAccessTokenSecret().length()>0);
+		
+	}
+	
+
+
+	
 
 }

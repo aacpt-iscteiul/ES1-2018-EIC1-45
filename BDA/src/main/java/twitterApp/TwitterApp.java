@@ -129,6 +129,7 @@ public class TwitterApp {
 			for (Status status : statuses) {
 
 				if (status.getUser().getName() != null && status.getUser().getName().contains(search)) {
+					
 					result.add(status.getUser().getName() + ":" + status.getText());
 				}
 			}
@@ -177,14 +178,12 @@ public class TwitterApp {
 		try {
 
 			return twitter.getScreenName();
-		} catch (IllegalStateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		
 		} catch (TwitterException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return ("Erro");
 	}
 
 	/**
@@ -205,7 +204,7 @@ public class TwitterApp {
 			}
 
 		} catch (TwitterException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}
 		return result;
@@ -223,8 +222,7 @@ public class TwitterApp {
 			twitter.updateStatus(status);
 
 		} catch (TwitterException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		
 		}
 	}
 
