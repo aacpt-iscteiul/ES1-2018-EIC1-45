@@ -1,22 +1,20 @@
 package mailApp;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Properties;
 
 import javax.mail.Address;
-import javax.mail.BodyPart;
 import javax.mail.Folder;
 import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.NoSuchProviderException;
 import javax.mail.Session;
 import javax.mail.Store;
-import javax.mail.internet.ContentType;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMultipart;
 
 import org.junit.Test;
 
@@ -40,20 +38,28 @@ public class EmailReaderTest {
 	/**
 	 * Valor String para o assunto do email
 	 */
-	String subject = "";
+	String subject;
 	/**
 	 * Valor String para o corpo do email
 	 */
-	String messageBoby = "";
+	String messageBoby;
+
+	/**
+	 * ArrayList de objetos Mail
+	 */
+	ArrayList<Mail> mails = new ArrayList<Mail>();
 
 //	EmailReader er = new EmailReader(receiverEmail, receiverPassword);
 //	Mail m = new Mail(null, null, null, null, null);
 
 	/**
 	 * Método para testar a classe EmailReader
+	 * 
+	 * @throws Exception Exception
 	 */
 	@Test
 	public void test() throws Exception {
+
 //		try {
 		Properties props = System.getProperties();
 		props.setProperty("mail.store.protocol", "imaps");
@@ -85,8 +91,8 @@ public class EmailReaderTest {
 			messageBoby = getTextFromMessage(message);
 			System.out.println("Text: " + messageBoby);
 
-//				Mail m = new Mail(receiverEmail, subject, messageBoby, senderEmail, sentDate);
-//				mails.add(m);
+			Mail m = new Mail(receiverEmail, subject, messageBoby, senderEmail, sentDate);
+			mails.add(m);
 		}
 		emailFolder.close();
 		emailStore.close();
@@ -97,9 +103,13 @@ public class EmailReaderTest {
 //		} catch (Exception e) {
 //			e.printStackTrace();
 //		}
+		assertNotNull(messageBoby);
+		assertNotNull(subject);
+		assertNotNull(getMailList());
+		
+		assertEquals("This is a test email subject 5", subject);
+		assertEquals("This is a test email body V", messageBoby.trim());
 
-//		assertEquals(messageBoby, "This is a test email body");
-		assertEquals(subject, "This is a test email subject XII");
 	}
 
 	/**
@@ -118,10 +128,19 @@ public class EmailReaderTest {
 		if (message.isMimeType("text/plain")) {
 			result = message.getContent().toString();
 		} else if (message.isMimeType("multipart/*")) {
-			MimeMultipart mimeMultipart = (MimeMultipart) message.getContent();
-			result = getTextFromMimeMultipart(mimeMultipart);
+//			MimeMultipart mimeMultipart = (MimeMultipart) message.getContent();
+//			result = getTextFromMimeMultipart(mimeMultipart);
 		}
 		return result;
+	}
+
+	/**
+	 * Método getter da ArrayList mails
+	 * 
+	 * @return mails
+	 */
+	ArrayList<Mail> getMailList() {
+		return mails;
 	}
 
 	/**
@@ -135,22 +154,22 @@ public class EmailReaderTest {
 	 * @throws MessagingException envia a exceção do tipo MessagingException para
 	 *                            quem chama o método.
 	 */
-	public String getTextFromMimeMultipart(MimeMultipart mimeMultipart) throws Exception {
+//	public String getTextFromMimeMultipart(MimeMultipart mimeMultipart) throws Exception {
 
-		int count = mimeMultipart.getCount();
-		if (count == 0)
-			throw new MessagingException("Multipart with no body parts not supported.");
-		boolean multipartAlt = new ContentType(mimeMultipart.getContentType()).match("multipart/alternative");
-		if (multipartAlt)
-			// alternativas aparecem pela ordem crescente
-			return getTextFromBodyPart(mimeMultipart.getBodyPart(count - 1));
-		String result = "";
-		for (int i = 0; i < count; i++) {
-			BodyPart bodyPart = mimeMultipart.getBodyPart(i);
-			result += getTextFromBodyPart(bodyPart);
-		}
-		return result;
-	}
+//		int count = mimeMultipart.getCount();
+//		if (count == 0)
+//			throw new MessagingException("Multipart with no body parts not supported.");
+//		boolean multipartAlt = new ContentType(mimeMultipart.getContentType()).match("multipart/alternative");
+//		if (multipartAlt)
+//			// alternativas aparecem pela ordem crescente
+//			return getTextFromBodyPart(mimeMultipart.getBodyPart(count - 1));
+//		String result = "";
+//		for (int i = 0; i < count; i++) {
+//			BodyPart bodyPart = mimeMultipart.getBodyPart(i);
+//			result += getTextFromBodyPart(bodyPart);
+//		}
+//		return result;
+//	}
 
 	/**
 	 * Método auxiliar de getTextFromMimeMultipart() que devolve o texto da mensagem
@@ -164,17 +183,17 @@ public class EmailReaderTest {
 	 *                            quem chama o método.
 	 */
 
-	public String getTextFromBodyPart(BodyPart bodyPart) throws Exception {
-		String result = "";
-		if (bodyPart.isMimeType("text/plain")) {
-			result = (String) bodyPart.getContent();
-		} else if (bodyPart.isMimeType("text/html")) {
-			String html = (String) bodyPart.getContent();
-			result = org.jsoup.Jsoup.parse(html).text();
-		} else if (bodyPart.getContent() instanceof MimeMultipart) {
-			result = getTextFromMimeMultipart((MimeMultipart) bodyPart.getContent());
-		}
-		return result;
-	}
+//	public String getTextFromBodyPart(BodyPart bodyPart) throws Exception {
+//		String result = "";
+//		if (bodyPart.isMimeType("text/plain")) {
+//			result = (String) bodyPart.getContent();
+//		} else if (bodyPart.isMimeType("text/html")) {
+//			String html = (String) bodyPart.getContent();
+//			result = org.jsoup.Jsoup.parse(html).text();
+//		} else if (bodyPart.getContent() instanceof MimeMultipart) {
+//			result = getTextFromMimeMultipart((MimeMultipart) bodyPart.getContent());
+//		}
+//		return result;
+//	}
 
 }

@@ -26,11 +26,11 @@ public class EmailSenderTest {
 	/**
 	 * Valor String para o assunto do email
 	 */
-	String emailSubject = "This is a test email subject XII";
+	String emailSubject = "This is a test email subject 5";
 	/**
 	 * Valor String para o corpo do email
 	 */
-	String emailBody = "This is a test email body X";
+	String emailBody = "This is a test email body V";
 
 	/**
 	 * Método para testar a classe EmailSender

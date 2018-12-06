@@ -1,6 +1,7 @@
 package mailApp;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
 import java.util.Date;
@@ -8,19 +9,15 @@ import java.util.Properties;
 
 import javax.mail.Address;
 import javax.mail.Authenticator;
-import javax.mail.BodyPart;
 import javax.mail.Folder;
 import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.NoSuchProviderException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.Transport;
-import javax.mail.internet.ContentType;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
 
 import org.junit.Test;
 
@@ -57,22 +54,20 @@ public class MailAppTester {
 	/**
 	 * Valor String para o corpo do email no emissor
 	 */
-//	String senderEmailBody = "";
-	String senderEmailBody = "" + "This is a test email body";
+	String senderEmailBody = "This is a test email body V";
 	/**
 	 * Valor String para o corpo do email no recetor
 	 */
-	String receiverEmailBody = "";
+	String receiverEmailBody;
 	/**
 	 * Valor String para o assunto do email no recetor
 	 */
-	String receiverEmailSubject = "";
+	String receiverEmailSubject;
 
 	/**
 	 * Método para testar a classe MailAppTester
-	 */
-	/**
 	 * 
+	 * @throws Exception Exception
 	 */
 	@Test
 	public void test() throws Exception {
@@ -128,21 +123,27 @@ public class MailAppTester {
 			System.out.println("Email Number: " + (i + 1));
 			receiverEmailSubject = message.getSubject();
 			System.out.println("Subject: " + message.getSubject());
-			String senderEmail2 = froms == null ? null : ((InternetAddress) froms[0]).getAddress();
-			System.out.println("From: " + senderEmail2);
+			String senderEmail = froms == null ? null : ((InternetAddress) froms[0]).getAddress();
+			System.out.println("From: " + senderEmail);
 			Date sentDate = message.getSentDate();
 			System.out.println("Sent date: " + sentDate);
 			receiverEmailBody = getTextFromMessage(message);
 			System.out.println("Text: " + receiverEmailBody);
 
-//				Mail m = new Mail(receiverEmail, subject, messageBoby, senderEmail, sentDate);
-//				mails.add(m);
+//			Mail m = new Mail(receiverEmail, subject, messageBoby, senderEmail, sentDate);
+//			mails.add(m);
 		}
+
 		emailFolder.close();
 		emailStore.close();
 
-//		assertEquals(senderEmailBody, receiverEmailBody);
+		assertNotNull(receiverEmailBody);
+		assertNotNull(receiverEmailSubject);
+
 		assertEquals(senderEmailSubject, receiverEmailSubject);
+		assertEquals(senderEmail, receiverEmail);
+		assertEquals(senderEmailBody, receiverEmailBody.trim());
+
 	}
 
 	/**
@@ -161,8 +162,8 @@ public class MailAppTester {
 		if (message.isMimeType("text/plain")) {
 			result = message.getContent().toString();
 		} else if (message.isMimeType("multipart/*")) {
-			MimeMultipart mimeMultipart = (MimeMultipart) message.getContent();
-			result = getTextFromMimeMultipart(mimeMultipart);
+//			MimeMultipart mimeMultipart = (MimeMultipart) message.getContent();
+//			result = getTextFromMimeMultipart(mimeMultipart);
 		}
 		return result;
 	}
@@ -173,24 +174,24 @@ public class MailAppTester {
 	 * 
 	 * @param mimeMultipart argumento do tipo mimeMultipart
 	 * @return Devolve uma String que corresponde ao texto da mensagem de email
-	 * @throws Exception 
+	 * @throws Exception Exception
 	 */
-	public String getTextFromMimeMultipart(MimeMultipart mimeMultipart) throws Exception {
-
-		int count = mimeMultipart.getCount();
-		if (count == 0)
-			throw new MessagingException("Multipart with no body parts not supported.");
-		boolean multipartAlt = new ContentType(mimeMultipart.getContentType()).match("multipart/alternative");
-		if (multipartAlt)
-			// alternativas aparecem pela ordem crescente
-			return getTextFromBodyPart(mimeMultipart.getBodyPart(count - 1));
-		String result = "";
-		for (int i = 0; i < count; i++) {
-			BodyPart bodyPart = mimeMultipart.getBodyPart(i);
-			result += getTextFromBodyPart(bodyPart);
-		}
-		return result;
-	}
+//	public String getTextFromMimeMultipart(MimeMultipart mimeMultipart) throws Exception {
+//
+//		int count = mimeMultipart.getCount();
+//		if (count == 0)
+//			throw new MessagingException("Multipart with no body parts not supported.");
+//		boolean multipartAlt = new ContentType(mimeMultipart.getContentType()).match("multipart/alternative");
+//		if (multipartAlt)
+//			// alternativas aparecem pela ordem crescente
+//			return getTextFromBodyPart(mimeMultipart.getBodyPart(count - 1));
+//		String result = "";
+//		for (int i = 0; i < count; i++) {
+//			BodyPart bodyPart = mimeMultipart.getBodyPart(i);
+//			result += getTextFromBodyPart(bodyPart);
+//		}
+//		return result;
+//	}
 
 	/**
 	 * Método auxiliar de getTextFromMimeMultipart() que devolve o texto da mensagem
@@ -204,16 +205,16 @@ public class MailAppTester {
 	 *                            quem chama o método.
 	 */
 
-	public String getTextFromBodyPart(BodyPart bodyPart) throws Exception {
-		String result = "";
-		if (bodyPart.isMimeType("text/plain")) {
-			result = (String) bodyPart.getContent();
-		} else if (bodyPart.isMimeType("text/html")) {
-			String html = (String) bodyPart.getContent();
-			result = org.jsoup.Jsoup.parse(html).text();
-		} else if (bodyPart.getContent() instanceof MimeMultipart) {
-			result = getTextFromMimeMultipart((MimeMultipart) bodyPart.getContent());
-		}
-		return result;
-	}
+//	public String getTextFromBodyPart(BodyPart bodyPart) throws Exception {
+//		String result = "";
+//		if (bodyPart.isMimeType("text/plain")) {
+//			result = (String) bodyPart.getContent();
+//		} else if (bodyPart.isMimeType("text/html")) {
+//			String html = (String) bodyPart.getContent();
+//			result = org.jsoup.Jsoup.parse(html).text();
+//		} else if (bodyPart.getContent() instanceof MimeMultipart) {
+//			result = getTextFromMimeMultipart((MimeMultipart) bodyPart.getContent());
+//		}
+//		return result;
+//	}
 }

@@ -51,11 +51,11 @@ public class ReadAndWriteXML {
 //				System.out.println(u.toString());
 //			}
 		} catch (ParserConfigurationException e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 		} catch (SAXException e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 		} catch (IOException e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
 
 	}
@@ -63,8 +63,8 @@ public class ReadAndWriteXML {
 	/**
 	 * Método auxiliar do readFromXML() que vai buscar objetos UserInfo
 	 * 
-	 * @param Node
-	 * @return UserInfo
+	 * @param node parametro node
+	 * @return u objeto UserInfo
 	 */
 	private UserInfo getUser(Node node) {
 		// XMLReaderDOM domReader = new XMLReaderDOM();
@@ -77,6 +77,10 @@ public class ReadAndWriteXML {
 			u.setFbPassword(getTagValue("fb_password", element));
 			u.setTwtUserName(getTagValue("twt_username", element));
 			u.setTwtPassword(getTagValue("twt_password", element));
+			u.setTwtAuthConsumerKey(getTagValue("auth_consumer_key", element));
+			u.setTwtAuthConsumerSecret(getTagValue("auth_consumer_secret", element));
+			u.setTwtAuthAccessToken(getTagValue("auth_access_token", element));
+			u.setTwtAuthAccessTokenSecret(getTagValue("auth_access_token_secret", element));
 		}
 		return u;
 	}
@@ -84,9 +88,9 @@ public class ReadAndWriteXML {
 	/**
 	 * Método auxiliar do getUser() que devolve o valor de um Node
 	 * 
-	 * @param String
-	 * @param Element
-	 * @return Node
+	 * @param tag     String
+	 * @param element Element
+	 * @return Node String
 	 */
 	private String getTagValue(String tag, Element element) {
 		NodeList nodeList = element.getElementsByTagName(tag).item(0).getChildNodes();
@@ -108,15 +112,20 @@ public class ReadAndWriteXML {
 	/**
 	 * Método para escrever as credenciais das apps em XML
 	 * 
-	 * @param emailAddress
-	 * @param emailPassword
-	 * @param twtPassword
-	 * @param twtUserName
-	 * @param fbPassword
-	 * @param fbUserName
+	 * @param emailAddress             String
+	 * @param emailPassword            String
+	 * @param fbUserName               String
+	 * @param fbPassword               String
+	 * @param twtUserName              String
+	 * @param twtPassword              String
+	 * @param twtAuthConsumerKey       String
+	 * @param twtAuthConsumerSecret    String
+	 * @param twtAuthAccessToken       String
+	 * @param twtAuthAccessTokenSecret String
 	 */
 	public void writeToXML(String emailAddress, String emailPassword, String fbUserName, String fbPassword,
-			String twtUserName, String twtPassword) {
+			String twtUserName, String twtPassword, String twtAuthConsumerKey, String twtAuthConsumerSecret,
+			String twtAuthAccessToken, String twtAuthAccessTokenSecret) {
 
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder;
@@ -132,7 +141,8 @@ public class ReadAndWriteXML {
 
 			// adicionar primeiro elemento filho ao elemento raiz
 			rootElement.appendChild(
-					getUserNode(doc, emailAddress, emailPassword, fbUserName, fbPassword, twtUserName, twtPassword));
+					getUserNode(doc, emailAddress, emailPassword, fbUserName, fbPassword, twtUserName, twtPassword,
+							twtAuthConsumerKey, twtAuthConsumerSecret, twtAuthAccessToken, twtAuthAccessTokenSecret));
 
 			// fazer output para o ficheiro, consola
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -152,24 +162,29 @@ public class ReadAndWriteXML {
 			System.out.println(" ----------------- fim do ficheiro xml -----------------");
 
 		} catch (Exception e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
 	}
 
 	/**
 	 * Método auxiliar do writeToXML() que devolve um objeto do tipo Node
 	 * 
-	 * @param doc
-	 * @param emailAddress
-	 * @param emailPassword
-	 * @param fbUserName
-	 * @param fbPassword
-	 * @param twtUserName
-	 * @param twtPassword
-	 * @return Node user
+	 * @param doc                      String
+	 * @param emailAddress             String
+	 * @param emailPassword            String
+	 * @param fbUserName               String
+	 * @param fbPassword               String
+	 * @param twtUserName              String
+	 * @param twtPassword              String
+	 * @param twtAuthConsumerKey       String
+	 * @param twtAuthConsumerSecret    String
+	 * @param twtAuthAccessToken       String
+	 * @param twtAuthAccessTokenSecret String
+	 * @return user Node
 	 */
 	private Node getUserNode(Document doc, String emailAddress, String emailPassword, String fbUserName,
-			String fbPassword, String twtUserName, String twtPassword) {
+			String fbPassword, String twtUserName, String twtPassword, String twtAuthConsumerKey,
+			String twtAuthConsumerSecret, String twtAuthAccessToken, String twtAuthAccessTokenSecret) {
 		Element user = doc.createElement("User");
 
 		// criar atributo id
@@ -192,18 +207,31 @@ public class ReadAndWriteXML {
 
 		// criar element twt_password
 		user.appendChild(getUserElements(doc, user, "twt_password", twtPassword));
+
+		// criar element auth_consumer_key
+		user.appendChild(getUserElements(doc, user, "auth_consumer_key", twtAuthConsumerKey));
+
+		// criar element auth_consumer_secret
+		user.appendChild(getUserElements(doc, user, "auth_consumer_secret", twtAuthConsumerSecret));
+
+		// criar element auth_access_token
+		user.appendChild(getUserElements(doc, user, "auth_access_token", twtAuthAccessToken));
+
+		// criar element auth_access_token_secret
+		user.appendChild(getUserElements(doc, user, "auth_access_token_secret", twtAuthAccessTokenSecret));
 		return user;
+
 	}
 
 	// metodo utilitário para criar nó de texto
 	/**
 	 * Método getUserElements
 	 * 
-	 * @param doc
-	 * @param element
-	 * @param name
-	 * @param value
-	 * @return node
+	 * @param doc     Document
+	 * @param element Element
+	 * @param name    String
+	 * @param value   String
+	 * @return node Node
 	 */
 	private Node getUserElements(Document doc, Element element, String name, String value) {
 		Element node = doc.createElement(name);
@@ -214,7 +242,7 @@ public class ReadAndWriteXML {
 	/**
 	 * Método de testes para leitura e escrita de XML
 	 * 
-	 * @param args
+	 * @param args argumentos
 	 */
 //	public static void main(String[] args) {
 //
@@ -224,9 +252,14 @@ public class ReadAndWriteXML {
 //		String fbPassword = "fbPassword";
 //		String twtUserName = "twtUserName";
 //		String twtPassword = "twtPassword";
+//		String twtAuthConsumerKey = "FaI6Q7K5LmhNQC6U87n2qffpe";
+//		String twtAuthConsumerSecret = "vE0BgXPhwWg1obzg4y68NE79ebJspgiXsRk74tINiMbEYVshn3";
+//		String twtAuthAccessToken = "1054111224428986368-Q1PHXRIo9vq7IjeI1HvOGJkOoBGNxX";
+//		String twtAuthAccessTokenSecret = "vcqLcZosIvFZecOE8bgx13fE79CRTc2VNt7CjXZQoOBAX";
 //
 //		ReadAndWriteXML xml = new ReadAndWriteXML();
-//		xml.writeToXML(emailAddress, emailPassword, fbUserName, fbPassword, twtUserName, twtPassword);
+//		xml.writeToXML(emailAddress, emailPassword, fbUserName, fbPassword, twtUserName, twtPassword,
+//				twtAuthConsumerKey, twtAuthConsumerSecret, twtAuthAccessToken, twtAuthAccessTokenSecret);
 //		xml.readFromXML();
 //	}
 }

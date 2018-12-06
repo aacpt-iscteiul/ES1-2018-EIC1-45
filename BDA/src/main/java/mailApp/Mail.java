@@ -6,7 +6,7 @@ import java.util.Date;
  * Date: 25/10/2018 Classe de objetos "Mails" a ser usada no futuro
  * 
  * @author António Teixeira
- * @version 1.02
+ * @version 1.03
  * 
  */
 
@@ -71,7 +71,7 @@ public class Mail {
 	/**
 	 * Método getter para o getEmailBody
 	 * 
-	 * @return
+	 * @return emailBody String
 	 */
 	public String getEmailBody() {
 		return emailBody;

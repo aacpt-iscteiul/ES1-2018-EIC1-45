@@ -1,9 +1,5 @@
 package mailApp;
 
-import java.beans.XMLEncoder;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.Properties;
 
 import javax.mail.Authenticator;
@@ -104,13 +100,12 @@ public class EmailSender {
 	 * @param args String de argumentos
 	 */
 //	public static void main(String[] args) {
-//		
+//
 //		String senderEmail = "es1_2018_45@outlook.pt";
 //		String senderPassword = "isctegrupo45";
 //		String receiverEmail = "es1_2018_45@outlook.pt";
-//		String emailSubject = "This is a test email subject XII";
-//		String emailBody = "This is a test email body X";
-//
+//		String emailSubject = "This is a test email subject 5";
+//		String emailBody = "This is a test email body V";
 //
 //		EmailSender send = new EmailSender(receiverEmail, emailSubject, emailBody, senderEmail, senderPassword);
 //		send.sendEmail();

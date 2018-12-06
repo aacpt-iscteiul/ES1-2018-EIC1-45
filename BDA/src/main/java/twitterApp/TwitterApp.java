@@ -22,6 +22,22 @@ import twitter4j.conf.ConfigurationBuilder;
 public class TwitterApp {
 
 	/**
+	 * String authConsumerKey
+	 */
+	private String authConsumerKey = "FaI6Q7K5LmhNQC6U87n2qffpe";
+	/**
+	 * String authConsumerSecret
+	 */
+	private String authConsumerSecret = "vE0BgXPhwWg1obzg4y68NE79ebJspgiXsRk74tINiMbEYVshn3";
+	/**
+	 * String authAccessToken
+	 */
+	private String authAccessToken = "1054111224428986368-Q1PHXRIo9vq7IjeI1HvOGJkOoBGNxX";
+	/**
+	 * String authAccessTokenSecret
+	 */
+	private String authAccessTokenSecret = "vcqLcZosIvFZecOE8bgx13fE79CRTc2VNt7CjXZQoOBAX";
+	/**
 	 * Instancia do twitter
 	 */
 	private Twitter twitter;
@@ -43,10 +59,8 @@ public class TwitterApp {
 	public void getTwitterInstance() {
 		try {
 			ConfigurationBuilder cb = new ConfigurationBuilder();
-			cb.setDebugEnabled(true).setOAuthConsumerKey("FaI6Q7K5LmhNQC6U87n2qffpe")
-					.setOAuthConsumerSecret("vE0BgXPhwWg1obzg4y68NE79ebJspgiXsRk74tINiMbEYVshn3")
-					.setOAuthAccessToken("1054111224428986368-Q1PHXRIo9vq7IjeI1HvOGJkOoBGNxX")
-					.setOAuthAccessTokenSecret("vcqLcZosIvFZecOE8bgx13fE79CRTc2VNt7CjXZQoOBAX");
+			cb.setDebugEnabled(true).setOAuthConsumerKey(authConsumerKey).setOAuthConsumerSecret(authConsumerSecret)
+					.setOAuthAccessToken(authAccessToken).setOAuthAccessTokenSecret(authAccessTokenSecret);
 			TwitterFactory tf = new TwitterFactory(cb.build());
 			twitter = tf.getInstance();
 
@@ -173,6 +187,12 @@ public class TwitterApp {
 		return null;
 	}
 
+	/**
+	 * Metodo que devolve lista dos posts marcados como favoritos pelo utilizador
+	 * 
+	 * @return
+	 */
+
 	public ArrayList<String> getFavorites() {
 
 		ArrayList<String> result = new ArrayList<String>();
@@ -191,6 +211,12 @@ public class TwitterApp {
 		return result;
 	}
 
+	/**
+	 * Metodo que permite o utilizador criar um tweet
+	 * 
+	 * @param status
+	 */
+
 	public void updateStatus(String status) {
 
 		try {
@@ -200,6 +226,22 @@ public class TwitterApp {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public String getAuthConsumerKey() {
+		return authConsumerKey;
+	}
+
+	public String getAuthConsumerSecret() {
+		return authConsumerSecret;
+	}
+
+	public String getAuthAccessToken() {
+		return authAccessToken;
+	}
+
+	public String getAuthAccessTokenSecret() {
+		return authAccessTokenSecret;
 	}
 
 }

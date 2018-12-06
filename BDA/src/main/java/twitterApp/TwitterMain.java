@@ -10,6 +10,5 @@ public final class TwitterMain {
 	public static void main(String[] args) {
 	TwitterApp t = new TwitterApp();
 	
-	
 	}
 }
