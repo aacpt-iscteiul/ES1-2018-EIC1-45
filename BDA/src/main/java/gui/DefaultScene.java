@@ -1,6 +1,8 @@
 package gui;
 
+
 import java.util.ArrayList;
+import java.util.List;
 
 import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;
@@ -92,42 +94,43 @@ public class DefaultScene{
 		replyBox.setWrapText(true);
 		
 		//left list
-		ListView<String> listTweets = new ListView<>();
-		setTweetList(listTweets, content);
-		frame.setLeft(listTweets);
+		ListView<String> list = new ListView<>();
+		setList(list, content);
+		frame.setLeft(list);
 		
-		optionsAndContent.getChildren().addAll(buttonsOptionsEmail(listTweets, content), content, replyBox);
+		optionsAndContent.getChildren().addAll(buttonsOptions(list, content), content, replyBox);
 		frame.setCenter(optionsAndContent);
 		
 		return new Scene(frame, NewWindow.WIDTH, NewWindow.HEIGHT);
 		
 	}
 	
-	private static void setTweetList(ListView<String> listEmails, TextArea bodyEmail) {
-		if (listEmails.getItems() != null)
-			listEmails.getItems().clear();
-		listEmails.getSelectionModel().selectedItemProperty().addListener( (v, oldValue, newValue) -> {
-			bodyEmail.setText(NewWindow.readMail.getBodyOf(listEmails.getSelectionModel().getSelectedIndex())); //função para ir buscar os corpos das mensagens aqui
+	private static void setList(ListView<String> list, TextArea body) {
+		MessageOrganiser.setLists();
+		if (list.getItems() != null)
+			list.getItems().clear();
+		list.getSelectionModel().selectedItemProperty().addListener( (v, oldValue, newValue) -> {
+			body.setText(MessageOrganiser.getBodies(list.getSelectionModel().getSelectedIndex())); //função para ir buscar os corpos das mensagens aqui
 		});
 		//Função da class Mail que devolve um ArrayList com os títulos 
-		ArrayList<String> arrayListEmails = NewWindow.readMail.getMailTitles();
+		List<String> arrayList = MessageOrganiser.getTitles();
 		
-		for (String email : arrayListEmails) {
-			listEmails.getItems().add(email);
-		}listEmails.getSelectionModel().select(0);
+		for (String title : arrayList) {
+			list.getItems().add(title);
+		}list.getSelectionModel().select(0);
 	}
 
-	private static HBox buttonsOptionsEmail(ListView<String> listTweets, TextArea tweet) {
-		HBox optionsEmail = new HBox(10);
-		optionsEmail.setPadding(new Insets(0, 0, 0, 10));
-		optionsEmail.setAlignment(Pos.BASELINE_LEFT);
+	private static HBox buttonsOptions(ListView<String> list, TextArea body) {
+		HBox options = new HBox(10);
+		options.setPadding(new Insets(0, 0, 0, 10));
+		options.setAlignment(Pos.BASELINE_LEFT);
 		
 		Button buttonReply = new Button("Reply");
 //		buttonReply.setOnAction(e -> ); //responde diretamente
 		
 		//refresh
 		Button buttonRefresh = new Button("Refresh");
-		buttonRefresh.setOnAction(e -> setTweetList(listTweets, tweet)); 
+		buttonRefresh.setOnAction(e -> setList(list, body)); 
 		
 		//filters
 		TextField textFilter = new TextField();
@@ -146,8 +149,8 @@ public class DefaultScene{
 			//setTimeFilter(timeInt);
 		});
 		
-		optionsEmail.getChildren().addAll(buttonReply, buttonRefresh, textFilter, buttonFilter, buttonTime);
-		return optionsEmail;
+		options.getChildren().addAll(buttonReply, buttonRefresh, textFilter, buttonFilter, buttonTime);
+		return options;
 	}
 	
 }
