@@ -1,3 +1,11 @@
 Grupo ES1-2018-EIC1-45
 
-António Teixeira nº74591 Carlos Henriques nº77652 Daniel Fernandes nº54384 Stephanie Andrade nº70094
+[Nome               /   numero    /  responsabilidades]
+
+[António Teixeira   /   nº74591   /  MailApp, XML, ScrumMaster e Trello]
+[Carlos Henriques   /   nº77652   /  GUI ]
+[Daniel Fernandes   /   nº54384   /  Facebook ]
+[Stephanie Andrade  /   nº70094   /  Twitter]
+
+
+Video de demonstração: 

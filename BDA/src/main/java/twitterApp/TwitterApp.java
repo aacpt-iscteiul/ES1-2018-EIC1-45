@@ -72,6 +72,8 @@ public class TwitterApp {
 
 	/**
 	 * Metodo que devolve lista com os tweets do utilizador
+	 * 
+	 * @return lista dos tweets criados pelo utilizador
 	 */
 	public ArrayList<String> getUsertimeline() {
 		ArrayList<String> result = new ArrayList<String>();
@@ -95,6 +97,8 @@ public class TwitterApp {
 
 	/**
 	 * Metodo devolve lista dos tweets do feed principal
+	 * 
+	 * @return lista dos tweets do feed principal
 	 */
 
 	public ArrayList<String> getTimeline() {
@@ -117,8 +121,8 @@ public class TwitterApp {
 	/**
 	 * Metodo que devolve lista de tweets do utilizador procurado
 	 * 
-	 * @param search
-	 * @return
+	 * @param search Utilizador a ser procurado
+	 * @return lista dos tweets do utilizador procurado
 	 */
 	public ArrayList<String> getTimelineSearchUserTweets(String search) {
 
@@ -144,8 +148,8 @@ public class TwitterApp {
 	/**
 	 * Metodo que devolve lista de tweets que contêm a palavra procurada
 	 * 
-	 * @param search
-	 * @return
+	 * @param search palavra procurada
+	 * @return lista de tweets com a palavra procurada
 	 */
 
 	public ArrayList<String> getTimelineSearchTweets(String search) {
@@ -171,7 +175,7 @@ public class TwitterApp {
 	/**
 	 * Metodo que devolve o username do utilizador
 	 * 
-	 * @return
+	 * @return string com username do utilizador
 	 */
 	public String getUsername() {
 
@@ -189,7 +193,7 @@ public class TwitterApp {
 	/**
 	 * Metodo que devolve lista dos posts marcados como favoritos pelo utilizador
 	 * 
-	 * @return
+	 * @return lista dos posts marcados como favoritos pelo utilizador
 	 */
 
 	public ArrayList<String> getFavorites() {
@@ -213,7 +217,7 @@ public class TwitterApp {
 	/**
 	 * Metodo que permite o utilizador criar um tweet
 	 * 
-	 * @param status
+	 * @param status tweet que o utilizador quer criar
 	 */
 
 	public void updateStatus(String status) {
@@ -225,23 +229,45 @@ public class TwitterApp {
 
 		}
 	}
+	
+	/**
+	 * 
+	 * @return string com o AuthConsumerKey
+	 */
 
 	public String getAuthConsumerKey() {
 		return authConsumerKey;
 	}
 
+	/**
+	 * 
+	 * @return string com o AuthConsumerSecret
+	 */
 	public String getAuthConsumerSecret() {
 		return authConsumerSecret;
 	}
 
+	/**
+	 * 
+	 * @return string com o AuthAccessToken
+	 */
 	public String getAuthAccessToken() {
 		return authAccessToken;
 	}
 
+	/**
+	 * 
+	 * @return string com o AuthAccessTokenSecret
+	 */
 	public String getAuthAccessTokenSecret() {
 		return authAccessTokenSecret;
 	}
 
+	/**
+	 * 
+	 * @param args argumentos da classe
+	 */
+	
 	public static void main(String[] args) {
 	new TwitterApp();
 	
