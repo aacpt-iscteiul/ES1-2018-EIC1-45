@@ -8,4 +8,4 @@ Grupo ES1-2018-EIC1-45
 [Stephanie Andrade  /   nº70094   /  Twitter]
 
 
-Video de demonstração: 
+Video de demonstração: https://youtu.be/Lb5f8bIS7G0
