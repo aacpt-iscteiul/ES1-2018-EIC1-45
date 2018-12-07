@@ -25,6 +25,7 @@ public class MessageOrganiser {
 		mails = NewWindow.readMail.getMailList();
 		posts = NewWindow.fb.getPosts();
 		
+		
 		//while there is no organiser
 		for (Mail m : mails) {
 			bodies.add(m.getEmailBody());
@@ -45,7 +46,7 @@ public class MessageOrganiser {
 	 * 
 	 * @return body
 	 * */
-	public static String getBodies(int selectedIndex) {
+	public static String getBody(int selectedIndex) {
 		return bodies.get(selectedIndex);
 	}
 

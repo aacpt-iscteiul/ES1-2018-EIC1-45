@@ -118,10 +118,9 @@ public class DefaultScene{
 	 * */
 	private static void setList(ListView<String> list, TextArea body) {
 		MessageOrganiser.setLists();
-		if (list.getItems() != null)
-			list.getItems().clear();
+		list.getItems().clear();
 		list.getSelectionModel().selectedItemProperty().addListener( (v, oldValue, newValue) -> {
-			body.setText(MessageOrganiser.getBodies(list.getSelectionModel().getSelectedIndex())); //função para ir buscar os corpos das mensagens aqui
+			body.setText(MessageOrganiser.getBody(list.getSelectionModel().getSelectedIndex())); //função para ir buscar os corpos das mensagens aqui
 		});
 		//Função da class Mail que devolve um ArrayList com os títulos 
 		List<String> arrayList = MessageOrganiser.getTitles();
