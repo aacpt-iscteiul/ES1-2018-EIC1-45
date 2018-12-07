@@ -242,4 +242,8 @@ public class TwitterApp {
 		return authAccessTokenSecret;
 	}
 
+	public static void main(String[] args) {
+	new TwitterApp();
+	
+	}
 }
