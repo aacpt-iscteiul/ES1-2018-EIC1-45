@@ -199,20 +199,20 @@ public class MailAppTester {
 		assertNotNull(er.getMailList());
 	}
 
-	@Test
-	public void testGetBodyOf() {
-		EmailReader er = new EmailReader(receiverEmail, receiverPassword);
-		ArrayList<Mail> mails = new ArrayList<Mail>();
-		@SuppressWarnings("deprecation")
-		Date date1 = new Date(2018, 11, 1231231);
-		@SuppressWarnings("deprecation")
-		Date date2 = new Date(2018, 11, 1231230);
-		Mail m1 = new Mail("receiverEmail1", "emailSubject1", "emailBody1", "senderEmail1", date1);
-		Mail m2 = new Mail("receiverEmail1", "emailSubject1", "emailBody1", "senderEmail1", date2);
-		mails.add(m1);
-		mails.add(m2);
-		assertNotNull(er.getBodyOf(1));
-	}
+//	@Test
+//	public void testGetBodyOf() {
+//		EmailReader er = new EmailReader(receiverEmail, receiverPassword);
+//		ArrayList<Mail> mails = new ArrayList<Mail>();
+//		@SuppressWarnings("deprecation")
+//		Date date1 = new Date(2018, 11, 1231231);
+//		@SuppressWarnings("deprecation")
+//		Date date2 = new Date(2018, 11, 1231230);
+//		Mail m1 = new Mail("receiverEmail1", "emailSubject1", "emailBody1", "senderEmail1", date1);
+//		Mail m2 = new Mail("receiverEmail1", "emailSubject1", "emailBody1", "senderEmail1", date2);
+//		mails.add(m1);
+//		mails.add(m2);
+//		assertNotNull(er.getBodyOf(1));
+//	}
 
 	/**
 	 * Método auxiliar do getTextFromMessage() que devolve o texto da mensagem de
