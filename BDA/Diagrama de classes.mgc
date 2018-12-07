@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ClassDiagram>
-    <Class name="mailApp.Mail" x="816" y="338">
+    <Class name="mailApp.Mail" x="1373" y="358">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -9,7 +9,7 @@
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
     </Class>
-    <Class name="mailApp.MailAppTester" x="698" y="18">
+    <Class name="mailApp.MailAppTester" x="1545" y="554">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -18,7 +18,7 @@
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
     </Class>
-    <Class name="gui.WindowSettings" x="472" y="229">
+    <Class name="gui.WindowSettings" x="570" y="156">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -28,7 +28,7 @@
             accessors-accepted="false" constructors-accepted="false"/>
         <Communication destinationClassName="gui.SettingsScenes"/>
     </Class>
-    <Class name="mailApp.EmailReaderTest" x="665" y="351">
+    <Class name="mailApp.EmailReaderTest" x="1316" y="675">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -36,8 +36,10 @@
             private-accepted="false" protected-accepted="false"
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="mailApp.Mail"
+            endpointName="mails" kind="Simple"/>
     </Class>
-    <Class name="XML.UserInfoTest" x="281" y="84">
+    <Class name="XML.UserInfoTest" x="519" y="234">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -49,7 +51,7 @@
             endpointName="u" kind="Simple"/>
         <Communication destinationClassName="XML.UserInfo"/>
     </Class>
-    <Class name="XML.ReadAndWriteXMLTest" x="-84" y="84">
+    <Class name="XML.ReadAndWriteXMLTest" x="940" y="565">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -59,7 +61,7 @@
             accessors-accepted="false" constructors-accepted="false"/>
         <Communication destinationClassName="XML.ReadAndWriteXML"/>
     </Class>
-    <Class name="gui.DefaultScene" x="470" y="124">
+    <Class name="gui.DefaultScene" x="715" y="148">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -69,7 +71,7 @@
             accessors-accepted="false" constructors-accepted="false"/>
         <Communication destinationClassName="mailApp.EmailReader"/>
     </Class>
-    <Class name="XML.ReadAndWriteXML" x="72" y="6">
+    <Class name="XML.ReadAndWriteXML" x="91" y="21">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -79,7 +81,7 @@
             accessors-accepted="false" constructors-accepted="false"/>
         <Communication destinationClassName="XML.UserInfo"/>
     </Class>
-    <Class name="ES1_2018_EIC1_45.BDA.SettingsScenesTest" x="321" y="674">
+    <Class name="ES1_2018_EIC1_45.BDA.SettingsScenesTest" x="400" y="137">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -88,7 +90,7 @@
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
     </Class>
-    <Class name="ES1_2018_EIC1_45.BDA.FacebookMainTest" x="302" y="548">
+    <Class name="ES1_2018_EIC1_45.BDA.FacebookMainTest" x="880" y="258">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -100,7 +102,7 @@
             endpointName="fb" kind="Simple"/>
         <Communication destinationClassName="facebookApp.FacebookMain"/>
     </Class>
-    <Class name="twitterApp.TwitterApp" x="68" y="373">
+    <Class name="twitterApp.TwitterApp" x="194" y="273">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -109,7 +111,7 @@
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
     </Class>
-    <Class name="mailApp.EmailSender" x="488" y="353">
+    <Class name="mailApp.EmailSender" x="1124" y="374">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -118,7 +120,7 @@
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
     </Class>
-    <Class name="ES1_2018_EIC1_45.BDA.TwitterAppTest" x="178" y="275">
+    <Class name="ES1_2018_EIC1_45.BDA.TwitterAppTest" x="22" y="179">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -129,7 +131,7 @@
         <Association destinationClassName="twitterApp.TwitterApp"
             endpointName="twitterTest" kind="Simple"/>
     </Class>
-    <Class name="gui.NewWindow" x="598" y="228">
+    <Class name="gui.NewWindow" x="1301" y="32">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -139,9 +141,12 @@
             accessors-accepted="false" constructors-accepted="false"/>
         <Association destinationClassName="mailApp.EmailReader"
             endpointName="readMail" kind="Simple"/>
+        <Association destinationClassName="facebookApp.FacebookMain"
+            endpointName="fb" kind="Simple"/>
+        <Communication destinationClassName="facebookApp.FacebookMain"/>
         <Communication destinationClassName="mailApp.EmailReader"/>
     </Class>
-    <Class name="facebookApp.FacebookMain" x="296" y="385">
+    <Class name="facebookApp.FacebookMain" x="1126" y="137">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -150,7 +155,7 @@
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
     </Class>
-    <Class name="XML.UserInfo" x="109" y="108">
+    <Class name="XML.UserInfo" x="168" y="508">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -159,7 +164,7 @@
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
     </Class>
-    <Class name="mailApp.EmailReaderTest2" x="869" y="484">
+    <Class name="mailApp.EmailReaderTest2" x="1272" y="558">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -169,7 +174,7 @@
             accessors-accepted="false" constructors-accepted="false"/>
         <Communication destinationClassName="mailApp.EmailReader"/>
     </Class>
-    <Class name="mailApp.EmailReader" x="809" y="211">
+    <Class name="mailApp.EmailReader" x="1468" y="220">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -181,7 +186,7 @@
             endpointName="mails" kind="Simple"/>
         <Communication destinationClassName="mailApp.Mail"/>
     </Class>
-    <Class name="twitterApp.TwitterMain" x="79" y="273">
+    <Class name="twitterApp.TwitterMain" x="215" y="176">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -190,7 +195,7 @@
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
     </Class>
-    <Class name="gui.SettingsScenes" x="468" y="177">
+    <Class name="gui.SettingsScenes" x="852" y="146">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -199,7 +204,7 @@
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
     </Class>
-    <Class name="mailApp.MailTest" x="884" y="20">
+    <Class name="mailApp.MailTest" x="1555" y="336">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -208,7 +213,7 @@
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
     </Class>
-    <Class name="mailApp.EmailSenderTest" x="556" y="7">
+    <Class name="mailApp.EmailSenderTest" x="1550" y="20">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
