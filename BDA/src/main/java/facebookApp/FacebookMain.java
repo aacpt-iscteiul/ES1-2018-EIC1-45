@@ -67,19 +67,6 @@ public class FacebookMain {
 		return me.getName();
 	}
 	
-	/**
-	 * 
-	 * 		postNewPost
-	 * 
-	 * Cria um novo post feito pelo utilizador.
-	 * 
-	 * (In Development)
-	 * 
-	 */
-	
-	public void postNewPost() {
-		
-	}
 	
 	
 	/**
