@@ -64,7 +64,8 @@ public class FacebookMainTest {
 	@Test
 	public void getIDShouldBeANumericalString() {
 		assertNotNull(fb.getMyID());
-		assert(Long.valueOf(fb.getMyID())>0);
+		
+		assertTrue(Long.valueOf(fb.getMyID())>0);
 	}
 	
 }
